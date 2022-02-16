@@ -1,0 +1,26 @@
+@import "../../Constants/Mixin";
+@import "../../Constants/Variables";
+
+
+.normalContactInput {
+  width: 60%;
+  margin: 5px auto;
+  padding: 0 10px;
+  outline: none;
+  border: $Border;
+  height: 70px;
+  border-radius: $BorderRadius;
+  transition: 0.25s linear;
+
+
+  &:focus {
+    box-shadow: $BoxShadow ;
+  }
+}
+
+
+::placeholder {
+  color: $PlaceholderColor;
+  font-size: 2vw;
+  opacity: .8;
+}
