@@ -6,10 +6,10 @@ import React from "react";
 import * as Variable from '../Constants/Variables';
 import {jsx, css, keyframes} from '@emotion/react';
 import {Link} from "react-router-dom"
-import Video from '../Assets/Video.mp4'
-import Telephone from '../Assets/telephone-call.png'
-import Search from '../Assets/Search.png'
-import LogoutIcon from "../Assets/LogoutIcon.png"
+import Video from '../Assets/Videos/Video.mp4'
+import Telephone from '../Assets/Img/telephone-call.png'
+import Search from '../Assets/Img/Search.png'
+import LogoutIcon from "../Assets/Img/LogoutIcon.png"
 
 import '../Constants/Mixin.scss'
 
@@ -18,7 +18,7 @@ const videoTextForward = keyframes
       0% {
         right: -10%;
       }
-      16% {
+      16%,100% {
         right: 43%;
       }
     `
@@ -27,7 +27,7 @@ const videoTextBackward = keyframes
       0% {
         right: 100%;
       }
-      16% {
+      16% ,100%{
         right: 36%;
       }
     `
@@ -68,15 +68,16 @@ const textVideoClass = css`
   > * {
     white-space: nowrap;
   }
-  h1{
-    animation: ${videoTextForward} 5s forwards ;
+
+  h1 {
+    animation: ${videoTextForward} 5s forwards;
     position: absolute;
     top: 35%;
 
   }
-  
-  h4{
-    animation: ${videoTextBackward} 5s forwards ;
+
+  h4 {
+    animation: ${videoTextBackward} 5s forwards;
     position: absolute;
     top: 45%;
 

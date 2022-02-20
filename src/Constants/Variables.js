@@ -1,16 +1,16 @@
 import React from "react";
 
 //All
-
+export const backgroundColor = '#FFFFFF';
 export const border = '1px solid #f0eeee';
-export const radius = '3px';
+export const radius = '5px';
 export const boxShadow = '10px 10px 40px -9px #e8e2e2';
 
 
 
 //Header
 export const navFontColor = '#294d5d';
-export const btnFontColor = '#1d323b';
+export const btnFontColor = '#f3f0f0';
 
 export const navBg = '#FFFFFF';
 export const underlineBtn = '#4a98ab';
@@ -27,7 +27,7 @@ export const blue100 = '#265e75';
 export const blue200 = '#3c7c91';
 export const blue300 = '#4a98ab';
 export const blue400 = '#5dbdc7';
-export const blue500 = '#b9e9f1';
+export const blue500 = '#8DE3EF';
 
 //Primary Orange
 export const Orange100 = '#ed9221';

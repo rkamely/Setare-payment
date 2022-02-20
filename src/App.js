@@ -8,7 +8,7 @@ import Routes from './Routes/Routes'
 const global = (props) => css`
   @font-face {
     font-family: "IRANSans";
-    src: local('IRANSans'), url('./Assets/Epilogue-Light.ttf') format('truetype');
+    src: local('IRANSans'), url('Assets/Fonts/Epilogue-Light.ttf') format('truetype');
   }
 
   * {
@@ -39,15 +39,18 @@ const global = (props) => css`
     }
 
     h3 {
-      font-size: 2vw;
-    }
-
-    h4 {
       font-size: 1.8vw;
     }
 
-    h5 {
+    h4 {
       font-size: 1.4vw;
+    }
+
+    h5 {
+      font-size: 1.2vw;
+    }
+    h6 {
+      font-size: 1vw;
     }
 
     p {
