@@ -35,6 +35,7 @@ const card = css`
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  
 
 
   &:hover > img {

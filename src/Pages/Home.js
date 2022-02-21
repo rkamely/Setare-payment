@@ -24,7 +24,7 @@ function Home() {
             <main css={backgroundHome}>
                 {/*<VideoHomePage/>*/}
                 <Services/>
-                {/*<Slogan/>*/}
+                <Slogan/>
                 <Features/>
             </main>
         </React.Fragment>

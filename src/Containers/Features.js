@@ -9,7 +9,6 @@ import cashOut from "./../Assets/Img/Cash Payment-bro.svg"
 import certification from "./../Assets/Img/Certification-rafiki.svg"
 
 
-
 const featuresContainerCSS = css`
   display: flex;
   flex-direction: row;
@@ -25,45 +24,41 @@ const featureCss = css`
   align-items: center;
   position: relative;
   height: 300px;
-  width: 200px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px;
   border-radius: 50%;
+  border-right: 15px solid rgba(33, 93, 91, 0.5);
 
-  h4 {
-    background-image: linear-gradient(to right, #eff7f7, #e9f3f3, #e3eeef, #ddeaeb, #d7e5e7);
+  h5 {
+    width: auto;
+    background-image: linear-gradient(to left, #FFFFFF, #e9f3f3, #e3eeef, #c7d4d5, #d7e5e7);
     border-radius: 55px;
     padding: 5px;
     box-shadow: rgb(17 12 46 / 15%) 0px 48px 100px 0px;
-    height: 35px;
+    height: 40px;
     margin-top: 20px;
+    text-align: center;
+    line-height: 33px;
+    white-space: nowrap;
   }
 
   h6 {
-    width: 140px;
+    width: 80%;
     margin: 10px auto;
 
 
   }
 `
-const borderFeatureCss = css`
-  position: absolute;
-  height: 400px;
-  width: 100px;
-  border: 10px solid rgba(33, 93, 91, 0.5);
-  border-radius: 50%;
-  transform: rotate(23deg);
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-`
+
 const vector = css`
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   background-image: linear-gradient(to right top, #6c9693, #57807b, #b8ccc8);
   padding: 5px;
   border-radius: 50%;
-  right: 35px;
-  top: -80px;
+  right: 75px;
+  top: -50px;
 
   img {
     background-color: #FFFFFF;
@@ -93,7 +88,7 @@ const pulseBtnCss = css`
   height: 30px;
   background-image: linear-gradient(to right top, #f6f6f6, #e9ebee, #dae1e7, #cad7dd, #b9ced1);
   border-radius: 50%;
-  right: 80px;
+  right: 120px;
   bottom: -12px;
   animation: ${pulse} 1.5s linear infinite;
 `
@@ -104,23 +99,20 @@ function Features() {
         <React.Fragment>
             <section css={featuresContainerCSS}>
                 <div css={featureCss}>
-                    <div css={borderFeatureCss}/>
                     <div css={vector}><img src={callCenter} alt="callCenter"/></div>
-                    <h4>پشتیبانی 24 ساعته</h4>
+                    <h5>پشتیبانی 24 ساعته</h5>
                     <h6>تیم فنی ما به صورت تمام وقت در خدمت شما عزیزان هستند.</h6>
                     <div css={pulseBtnCss}/>
                 </div>
                 <div css={featureCss}>
-                    <div css={borderFeatureCss}/>
                     <div css={vector}><img src={cashOut} alt="callCenter"/></div>
-                    <h4>تصویه روزانه بعد از یک روزه کاری </h4>
+                    <h5>تصویه روزانه بعد از یک روزه کاری </h5>
                     <h6>بعد از یک روز کاری به صورت کامل پول در حساب شما قرار خواهد گرفت.</h6>
                     <div css={pulseBtnCss}/>
                 </div>
                 <div css={featureCss}>
-                    <div css={borderFeatureCss}/>
                     <div css={vector}><img src={certification} alt="callCenter"/></div>
-                    <h4>دریافت مجوز پرداخت یاری</h4>
+                    <h5>دریافت مجوز پرداخت یاری</h5>
                     <h6>از اول تا آخر گرفتن مجوز پرداخت یاری در کنار شما مشتریان عزیز هستیم.</h6>
                     <div css={pulseBtnCss}/>
                 </div>

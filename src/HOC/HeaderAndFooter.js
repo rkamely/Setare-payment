@@ -2,6 +2,7 @@ import React from "react";
 import {Route} from "react-router-dom";
 import News from "../Containers/News";
 import Header from "../Containers/Header";
+import Footer from "../Containers/Footer";
 
 
 export default function HeaderAndFooter({component: Component, ...rest}) {
@@ -12,6 +13,7 @@ export default function HeaderAndFooter({component: Component, ...rest}) {
                 {/*<News/>*/}
                 <Header/>
                 <Component {...matchProps}/>
+                <Footer/>
             </main>
         )}/>
     )
