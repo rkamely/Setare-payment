@@ -22,7 +22,7 @@ function Home() {
     return (
         <React.Fragment>
             <main css={backgroundHome}>
-                {/*<VideoHomePage/>*/}
+                <VideoHomePage/>
                 <Services/>
                 <Slogan/>
                 <Features/>

@@ -10,7 +10,7 @@ export default function HeaderAndFooter({component: Component, ...rest}) {
     return (
         <Route {...rest} render={matchProps => (
             <main className='ٌWrapper'>
-                {/*<News/>*/}
+                <News/>
                 <Header/>
                 <Component {...matchProps}/>
                 <Footer/>

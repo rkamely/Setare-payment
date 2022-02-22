@@ -1,21 +1,25 @@
 import React from "react";
 
 //All
+export const fontColor = '#FFFFFF';
 export const backgroundColor = '#FFFFFF';
 export const border = '1px solid #f0eeee';
 export const radius = '5px';
 export const boxShadow = '10px 10px 40px -9px #e8e2e2';
 
-
+//News
+export const bgNews = '#2B4141';
 
 //Header
 export const navFontColor = '#294d5d';
 export const btnFontColor = '#f3f0f0';
-
 export const navBg = '#FFFFFF';
 export const underlineBtn = '#4a98ab';
 export const actionBtnBg = '#eb8125';
 export const radiusBtn = '3px';
+
+//Slogan
+export const sloganColor = '#2B4141';
 
 
 ////////////////// Input Colors ////////////////
@@ -42,8 +46,6 @@ export const peach700 = '#eb8125';
 
 //Gray Color
 export const gray300 = '#f3f3f3';
-
-
 export const errorColor = '#ff1a1a';
 export const darkRedErrorColor = '#bd0000';
 export const successColor = '#01ff6a';
@@ -62,7 +64,6 @@ export const grayMaterial = '#607D8B';
 export const pinkMaterial = '#F50057';
 export const greenMaterial = '#00C853';
 export const orangeMaterial = '#FFAB00';
-
 export const singleBlueButton = '#3441ff';
 export const primaryLight = '#2196f3';
 export const secondaryLight = '#f50057';

@@ -2,9 +2,9 @@
  /** @jsx jsx */
 /** @jsxImportSource @emotion/react */
 
-import React, {useEffect} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
-import {jsx, css, keyframes} from '@emotion/react';
+import {css} from '@emotion/react';
 import footerBg from "../Assets/Img/Footer-svgWave.png";
 import logo from "./../Assets/Img/01 - SetareAval.png"
 import * as Variable from '../Constants/Variables';
@@ -83,7 +83,9 @@ const footerContactCSS = css`
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  width: 20%;
+  width: 25%;
+  margin-top: 5rem;
+
   a {
     text-decoration: none;
     color: #919191;
@@ -108,10 +110,31 @@ const footerContactCSS = css`
     margin: 5px 0;
   }
 `
+const socialIconCSS = css`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  a {
+
+    margin: .5rem;
+
+    > * {
+      font-size: 1.6rem !important;
+
+    }
+
+  }
+
+`
+const licenseCSS = css`
+  font-size: .9rem;
+  text-align: justify;
+`
 
 
 function Footer() {
-
 
     return (
         <React.Fragment>
@@ -146,16 +169,16 @@ function Footer() {
                         <FaRoute/>
                         <span>آدرس ستاره اول</span>
                     </Link>
-                    <div>
-                        <BsWhatsapp/>
-                        <BsInstagram/>
-                        <FaTelegramPlane/>
+                    <div css={socialIconCSS}>
+                        <Link> <BsWhatsapp/> </Link>
+                        <Link> <BsInstagram/> </Link>
+                        <Link> <FaTelegramPlane/> </Link>
                     </div>
+                    <div css={licenseCSS}>تمامی حقوق این سایت مربوط به شرکت ستاره اول می باشد</div>
                 </div>
             </div>
         </React.Fragment>
-    )
-        ;
+    );
 }
 
 export default Footer;

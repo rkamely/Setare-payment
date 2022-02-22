@@ -2,50 +2,48 @@
  /** @jsx jsx */
 /** @jsxImportSource @emotion/react */
 
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {jsx, css, keyframes} from '@emotion/react';
+import * as Variable from '../Constants/Variables';
 
-const animation = keyframes
-    `
-      0% {
-        opacity: 0;
-      }
-      30% {
-        opacity: 1
-      }
-      35% {
-        transform: scale(1.05);
-      }
-      100% {
-        transform: scale(1);
-      }
+const animation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1
+  }
+  35% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 
-    `
-const mainNews = css`
+`
+const mainNews =  css`
   height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #3b3f3d;
+  background-color: ${Variable.bgNews};
   overflow: hidden;
 `
-
 const newsClass = css`
   text-align: center;
   animation: ${animation} 2s ease-in-out;
 `
 const newsLinkClass = css`
-  color: #ffffff;
+  color: ${Variable.fontColor};
+  font-size: .8rem;
 `
 
 
 function News() {
-
     let news = ["توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.", "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.", "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.", "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.", "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید."]
     let autoSlide = 0;
-
     function autoShowSlides() {
         let i;
         let slide = document.getElementsByClassName("mySlides");
