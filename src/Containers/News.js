@@ -22,7 +22,7 @@ const animation = keyframes`
   }
 
 `
-const mainNews =  css`
+const mainNews = css`
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -30,6 +30,9 @@ const mainNews =  css`
   align-items: center;
   background-color: ${Variable.bgNews};
   overflow: hidden;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 const newsClass = css`
   text-align: center;
@@ -44,6 +47,7 @@ const newsLinkClass = css`
 function News() {
     let news = ["توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.", "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.", "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.", "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید.", "توسط فرم زیر می توانید متن ساختگی مورد نظر خود را در واحدهای کاراکتر، کلمه و پاراگراف تولید کنید، سپس آنرا کپی کنید و در کار مورد نظر خود قرار دهید."]
     let autoSlide = 0;
+
     function autoShowSlides() {
         let i;
         let slide = document.getElementsByClassName("mySlides");

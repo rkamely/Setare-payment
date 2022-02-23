@@ -27,7 +27,9 @@ const card = css`
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  
+  @media (max-width: 768px) {
+    width: 45%;
+  }
 
 
   &:hover > img {
@@ -53,9 +55,21 @@ const card = css`
     height: 50%;
     z-index: 1000;
     background-color: #FFFFFF;
-    padding: 10px ;
-    >*{
+    padding: 10px;
+
+    > * {
       margin: 5px auto;
+    
+    }
+    h3 {
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+    h6 {
+      @media (max-width: 768px) {
+        font-size: .7rem;
+      }
     }
 
   }
@@ -101,17 +115,17 @@ function CardService(props) {
 
     return (
         <React.Fragment>
-                <div css={card}>
-                    <img src={props.source} alt={props.alt}/>
-                    <div>
-                        <h3>{props.title}</h3>
-                        <h6>{props.description}</h6>
-                    </div>
-                    <button>
-                        <BsArrowRight/>
-                        <Link>اطلاعات بیشتر</Link>
-                    </button>
+            <div css={card}>
+                <img src={props.source} alt={props.alt}/>
+                <div>
+                    <h3>{props.title}</h3>
+                    <h6>{props.description}</h6>
                 </div>
+                <button>
+                    <BsArrowRight/>
+                    <Link>اطلاعات بیشتر</Link>
+                </button>
+            </div>
         </React.Fragment>
     )
         ;

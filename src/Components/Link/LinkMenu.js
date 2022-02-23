@@ -16,6 +16,7 @@ const linkMenuCSS = css`
   height: 40px;
   color: ${Variable.navFontColor};
   font-weight: bold;
+  
 
   &:after {
     content: '';
@@ -26,8 +27,9 @@ const linkMenuCSS = css`
     bottom: 0;
     height: 3px;
     background: ${Variable.underlineBtn};
-
-
+    @media (max-width: 768px) {
+      display: none
+    }
   }
 
   &:hover {
@@ -38,7 +40,7 @@ const linkMenuCSS = css`
       left: 0;
     }
   }
-  
+
 
 `
 
@@ -48,7 +50,7 @@ function LinkMenu(props) {
 
     return (
         <React.Fragment>
-            <Link css={linkMenuCSS}> {props.menuName}</Link>
+            <Link css={linkMenuCSS}> {props.menuName} </Link>
         </React.Fragment>
     );
 }

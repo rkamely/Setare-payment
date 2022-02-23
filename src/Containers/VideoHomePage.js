@@ -32,7 +32,9 @@ const videoSectionClass = css`
   align-items: center;
   overflow: hidden;
   height: calc (100vh - 150px) !important;
-
+  @media (max-width: 768px) {
+    margin-top: 5rem ;
+  }
 `
 const videoClass = css`
   width: 98%;
@@ -58,10 +60,16 @@ const textVideoClass = css`
 
   h1 {
     animation: ${videoTextForward} 2s forwards;
+    @media (max-width: 768px) {
+      font-size: 3rem;
+    }
   }
 
   h4 {
     animation: ${videoTextBackward} 2s forwards;
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `
 

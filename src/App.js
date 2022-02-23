@@ -5,12 +5,11 @@ import React from "react";
 import {Global, css} from '@emotion/react'
 import Routes from './Routes/Routes'
 
-const global = (props) => css`
+const global = () => css`
   @font-face {
     font-family: "IRANSans";
     src: local('IRANSans'), url('Assets/Fonts/Epilogue-Light.ttf') format('truetype');
   }
-
   * {
     box-sizing: border-box;
     padding: 0;

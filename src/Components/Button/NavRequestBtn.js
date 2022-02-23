@@ -17,6 +17,10 @@ const requestBtn = css`
   color: ${Variable.btnFontColor};
   z-index: 0;
   font-weight: 500;
+  @media (max-width: 768px) {
+    width: 100px;
+
+  }
 
   &:after {
     content: '';

@@ -23,6 +23,9 @@ const bgSloganCss = css`
 
   h1 {
     font-size: 4rem !important;
+    @media (max-width: 768px) {
+      font-size: 1.8rem !important;
+    }
   }
 
   h4 {

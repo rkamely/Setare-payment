@@ -18,8 +18,11 @@ const cardSection = css`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: stretch;
-  padding: 70px 10px;
+  padding: 10rem 1rem;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+  }
 
 `
 

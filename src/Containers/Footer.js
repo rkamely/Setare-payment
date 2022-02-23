@@ -26,11 +26,14 @@ const footerSectionCSS = css`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-self: center;
-  padding: 100px;
+  align-items: flex-start;
+  padding-top: 3rem;
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
 `
 const footerLogoCSS = css`
-  width: 25%;
+  width: 40%;
 
   img {
     width: 70px;
@@ -40,27 +43,20 @@ const footerLogoCSS = css`
   h5 {
     border-top: 2px solid #919191;
     padding-top: 10px;
-
-    &:hover {
-      color: #dadada;
-    }
+  }
+  @media (max-width: 768px) {
+    display: none
   }
 `
 const linksFooterCSS = css`
-  padding-top: 40px;
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-self: flex-start;
 
-  > * {
-    text-align: center;
-
-  }
-
-  h3 {
-    padding-bottom: 10px;
-    border-bottom: 2px solid #919191;
+  & > :first-child {
+    border-top: 2px solid #919191;;
   }
 
   a {
@@ -70,7 +66,6 @@ const linksFooterCSS = css`
     font-size: .9rem;
     font-weight: 600;
     position: relative;
-
 
     &:hover {
       color: #dadada;
@@ -82,18 +77,26 @@ const footerContactCSS = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-self: center;
-  width: 25%;
-  margin-top: 5rem;
+  width: 30%;
+  font-size: 1rem;
+  padding-top: 5rem;
+  @media (max-width: 768px) {
+    width: 50%;
+  }
 
   a {
     text-decoration: none;
     color: #919191;
-
+    span{
+      @media (max-width: 768px) {
+        font-size: .8rem;
+      }
+    }
+    
     > :nth-child(1) {
       color: #919191;
-      font-size: 1.25rem;
       margin-left: 10px;
+      font-size: 2rem;
     }
 
     &:hover > * {
@@ -141,14 +144,16 @@ function Footer() {
             <div css={footerSectionCSS}>
                 <div css={footerLogoCSS}>
                     <img src={logo} alt="setareh avval logo"/>
-                    <h5>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
-                        درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری
+                    <h5>
+                        از مهم‌ترین اهداف شرکت ستاره اول می‌توان به کوتاه نمودن چرخه
+                        دریافت قبوض و تسریع در روند وصول مطالبات، راحت‌ترین و سریع‌ترین روش خرید شارژ مشترکین اعتباری به
+                        صورت الکترونیکی و لحظه‌ای و توسعه و تنوع محصول با تحلیل نیاز مشترکین، اشاره کرد . فعالیت های این
+                        شرکت منجر به حذف واسطــــه و توسعه فروش انواع محصولات همراه اول از جمله شارژ فوق العاده، بانوان،
+                        جوانان، وفاداری، دلخواه، مستقیم و شارژ اضطراری، انواع بسته‌های مختلف اینترنتی و پرداخت قبوض شده
+                        است .
                     </h5>
                 </div>
                 <div css={linksFooterCSS}>
-                    <h3>پیوند ها</h3>
                     <Link>صفحه اصلی</Link>
                     <Link>درخواست درگاه</Link>
                     <Link>بلاگ</Link>
@@ -157,24 +162,25 @@ function Footer() {
                     <Link>ثبت نام</Link>
                 </div>
                 <div css={footerContactCSS}>
-                    <Link>
+                    <a href={"tel:+989199001193"}>
                         <FaPhoneVolume/>
                         <span>تماس با ما</span>
-                    </Link>
-                    <Link>
+                    </a>
+                    <a href={"mailto:r.kameli@setareaval.ir"}>
                         <MdAttachEmail/>
                         <span>ارسال ایمیل</span>
-                    </Link>
-                    <Link>
+                    </a>
+                    <a target={"_blank"}
+                       href={"https://www.google.com/maps/place/%D8%B3%D8%AA%D8%A7%D8%B1%D9%87+%DB%8C%DA%A9%E2%80%AD/@35.7797165,51.3743237,19z/data=!4m5!3m4!1s0x3f8e077df52d20bb:0xb41d4b97fc84bc2c!8m2!3d35.7796364!4d51.3750377"}>
                         <FaRoute/>
-                        <span>آدرس ستاره اول</span>
-                    </Link>
+                        <span>سعادت آباد، خیابان کیان ۱۳ شرقی، پلاک ۲</span>
+                    </a>
                     <div css={socialIconCSS}>
                         <Link> <BsWhatsapp/> </Link>
                         <Link> <BsInstagram/> </Link>
                         <Link> <FaTelegramPlane/> </Link>
                     </div>
-                    <div css={licenseCSS}>تمامی حقوق این سایت مربوط به شرکت ستاره اول می باشد</div>
+                    <div css={licenseCSS}>تمامی حقوق این سایت مربوط به شرکت ستاره اول می باشد.</div>
                 </div>
             </div>
         </React.Fragment>
