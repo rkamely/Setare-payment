@@ -10,7 +10,8 @@ import Mobile from "../Assets/Img/contactUsMobilePhone.png"
 import WhatsApp from "../Assets/Img/contactUsWhatsapp.png"
 import Instagram from "../Assets/Img/contactUsInstagram.png"
 import Telegram from "../Assets/Img/contactUsTelegram.png"
-import {navFontColor} from "../Constants/Variables";
+import headquarter from "../Assets/Img/headquarter.png"
+import Office from "../Assets/Img/help-desk.png"
 
 
 const contactUsCSS = css`
@@ -43,6 +44,9 @@ const callSectionCSS = css`
 
   h2 {
     margin-bottom: 1rem !important;
+    @media (max-width: 768px) {
+      font-size: 1.5rem!important;
+    }
   }
 `
 
@@ -54,6 +58,10 @@ const sendMail = css`
   border: ${Variable.border};
   box-shadow: ${Variable.boxShadow};
   padding: 2rem;
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+  }
 
   > input, > textarea {
     padding: .5rem;
@@ -95,10 +103,11 @@ const forceCall = css`
   > * {
     padding: .5rem;
     margin: 1rem auto;
+     
   }
 
 
-  > div {
+  > a {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -108,6 +117,12 @@ const forceCall = css`
     width: 90%;
     cursor: pointer;
     transition: .25s;
+    color: ${Variable.navFontColor};
+    span{
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
 
     &:hover {
       box-shadow: ${Variable.boxShadow};
@@ -117,6 +132,9 @@ const forceCall = css`
       margin: auto 15%;
       width: 3rem;
       height: 3rem;
+      @media (max-width: 768px) {
+        margin: auto 5%;
+      }
     }
   }
 `
@@ -125,6 +143,9 @@ const address = css`
 
   h2 {
     margin: 1rem auto !important;
+    @media (max-width: 768px) {
+   font-size: 1.5rem!important;
+    }
   }
 
   > div {
@@ -136,6 +157,20 @@ const address = css`
     * {
       margin: .25rem auto;
     }
+  }
+`
+const addressBox = css`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+  }
+
+  img {
+    width: 8rem;
+    height: 8rem;
   }
 `
 const emailAddress = css`
@@ -154,50 +189,60 @@ const emailAddress = css`
     width: 100%;
     padding: 1rem;
     transition: .25s;
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
 
     &:hover {
       border: 1px solid #d9d3d3;
+    }
+
+    div {
+      text-align: center;
     }
   }
 `
 
 function ContactUs() {
-
+    const handleContactUsForm = (e) => {
+        e.preventDefault()
+        console.log("form submitted")
+    }
     return (
         <React.Fragment>
             <div css={contactUsCSS}>
                 <section css={callSectionCSS}>
                     <div>
                         <h2>فرم تماس</h2>
-                        <div css={sendMail}>
+                        <form css={sendMail} onSubmit={handleContactUsForm}>
                             <input type="text" placeholder={"نام و نام خانوادگی"}/>
                             <input type="text" placeholder={"شمارموبایل"}/>
                             <textarea name="" id="" rows="5"
                                       placeholder={"لطفا پیام خود را ثبت کنید"}/>
                             <button> ارسال</button>
-                        </div>
+                        </form>
 
                     </div>
                     <div>
                         <h2>تماس فوری</h2>
                         <div css={forceCall}>
                             <h3>زمان پاسخگوی شنبه الی پنجشنبه ساعت 8 الی 17</h3>
-                            <div>
+                            <a href={"tel:+989199001193"}>
                                 <img src={Mobile} alt="call us"/>
                                 <span>تماس تلفنی</span>
-                            </div>
-                            <div>
+                            </a>
+                            <a href="#">
                                 <img src={WhatsApp} alt="whatsapp contact line"/>
                                 <span>تماس در واتس اپ</span>
-                            </div>
-                            <div>
+                            </a>
+                            <a href="#">
                                 <img src={Instagram} alt="instagram contact line"/>
                                 <span>تماس در اینستاگرام</span>
-                            </div>
-                            <div>
+                            </a>
+                            <a href="#">
                                 <img src={Telegram} alt="Telegram contact line"/>
                                 <span>تماس در تلگرام</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -205,50 +250,77 @@ function ContactUs() {
                 <section>
                     <div css={address}>
                         <h2>دفتر مرکزی</h2>
-                        <div>
-                            <div>جزیره کیش، مجتمع اداری سارینا ۱، طبقه هفتم، واحد ۷۱۵</div>
+                        <div css={addressBox}>
                             <div>
-                                <div>تلفن : 1-44482080 - 076</div>
-                                <div> دورنگار: 44482082 - 076</div>
-                                <div> کد پستی: ۷۹۴۱۸۹۷۱۶۷</div>
-                                <div>ایمیل info@setareaval.ir</div>
+                                <div>جزیره کیش، مجتمع اداری سارینا ۱، طبقه هفتم، واحد ۷۱۵</div>
+                                <div>
+                                    <div>تلفن : 1-44482080 - 076</div>
+                                    <div> دورنگار: 44482082 - 076</div>
+                                    <div> کد پستی: ۷۹۴۱۸۹۷۱۶۷</div>
+                                    <div>ایمیل info@setareaval.ir</div>
+                                </div>
                             </div>
+                            <img src={headquarter} alt="headquarterBuilding"/>
                         </div>
+
                     </div>
                     <div css={address}>
                         <h2>دفتر هماهنگی</h2>
-                        <div>
-                            <div>تهران، سعادت آباد، خیابان کیان ۱۳ شرقی، پلاک ۲</div>
+                        <div css={addressBox}>
                             <div>
-                                <div>تلفن: ۷۹۱۸۲۰۰۰ - ۰۲۱</div>
-                                <div> دورنگار: ۲۶۷۴۲۳۱۲ - ۰۲۱</div>
-                                <div> کد پستی: ۱۹۹۸۸۳۷۸۰۱</div>
-                                <div>ایمیل info@setareaval.ir</div>
+                                <div>تهران، سعادت آباد، خیابان کیان ۱۳ شرقی، پلاک ۲</div>
+                                <div>
+                                    <div>تلفن: ۷۹۱۸۲۰۰۰ - ۰۲۱</div>
+                                    <div> دورنگار: ۲۶۷۴۲۳۱۲ - ۰۲۱</div>
+                                    <div> کد پستی: ۱۹۹۸۸۳۷۸۰۱</div>
+                                    <div>ایمیل info@setareaval.ir</div>
+                                </div>
                             </div>
+                            <img src={Office} alt="Coordinating Office"/>
                         </div>
                     </div>
                     <div css={address}>
                         <h2>تماس با مدیران</h2>
                         <div css={emailAddress}>
                             <a href={"mailto:r.kameli@setareaval.ir"}>
-                                <spna>مدیریت عامل - جناب آقای صدوقی</spna>
+                                <div>
+                                    <span>مدیریت عامل</span>
+                                    <br/>
+                                    <span>جناب آقای صدوقی</span>
+                                </div>
                                 <spna>Mj.sadooghi@setareaval.ir</spna>
                             </a>
                             <a href={"mailto:r.kameli@setareaval.ir"}>
-                                <spna>معاونت فروش و بازاریابی - جناب آقای قربانی</spna>
+                                <div>
+                                    <span>معاونت فروش و بازاریابی</span>
+                                    <br/>
+                                    <span>جناب آقای قربانی</span>
+                                </div>
                                 <spna>m.ghorbani@setareaval.ir</spna>
                             </a>
                             <a href={"mailto:r.kameli@setareaval.ir"}>
-                                <spna>معاونت سرمایه انسانی و خدمات شرکتی - جناب آقای کربلایی</spna>
-                                <spna>j.karbalaii@setareaval.ir</spna>
+                                <div>
+                                    <span>معاونت سرمایه انسانی </span>
+                                    <br/>
+                                    <span>جناب آقای کربلایی</span>
+                                </div>
+                                <span>j.karbalaii@setareaval.ir</span>
                             </a>
                             <a href={"mailto:r.kameli@setareaval.ir"}>
-                                <spna>معاونت مالی و اداری - جناب آقای باغشاهی</spna>
+                                <div>
+                                    <span>معاونت مالی و اداری</span>
+                                    <br/>
+                                    <span>جناب آقای باغشاهی</span>
+                                </div>
                                 <spna>s.baghshahi@setareaval.ir</spna>
                             </a>
                             <a href={"mailto:r.kameli@setareaval.ir"}>
-                                <spna>مدیریت روابط عمومی - جناب آقای صالحی‌فرد</spna>
-                                <spna>h.salehifard@setareaval.ir</spna>
+                                <div>
+                                    <span>مدیریت روابط عمومی</span>
+                                    <br/>
+                                    <span>جناب آقای صالحی‌فرد</span>
+                                </div>
+                                <span>h.salehifard@setareaval.ir</span>
                             </a>
                         </div>
                     </div>

@@ -24,7 +24,7 @@ const navClass = display => css`
   background-color: ${Variable.navBg};
   border-bottom: ${Variable.border};
   border-top: ${Variable.border};
-  z-index: 5000;
+  z-index: 3000;
   position: ${display ? "fixed" : "block"};
   top: 0;
   width: 100%;
@@ -41,7 +41,7 @@ const bgHamburgerBtn = (open) => css`
     background: transparent;
     width: 100%;
     height: 100%;
-    z-index: 1000;
+    z-index: 2500;
     top: 0;
     left: 0;
   }
@@ -54,6 +54,8 @@ const menuBtnClass = (open) => css`
   align-items: center;
   position: relative;
   transition: all 1s ease-in-out;
+  z-index: 3000;
+
   @media (max-width: 768px) {
     background-color: #FFFFFF;
     display: ${open ? "flex" : "none"};
@@ -61,8 +63,8 @@ const menuBtnClass = (open) => css`
     position: absolute;
     right: 0;
     top: 4.9rem;
-    z-index: 3000;
     width: 20%;
+
   }
   @media (max-width: 600px) {
     width: 30%;
@@ -129,18 +131,17 @@ function Header() {
     const [open, setOpen] = useState(false)
     return (
         <React.Fragment>
-            <header id="Header" css={navClass(display)}>
+            <div onClick={() => setOpen(false)} css={bgHamburgerBtn(open)}/>
+            <header id="Header" css={navClass(display)} onClick={() => setOpen(!open)}>
                 <div onClick={() => setOpen(!open)}>
                     <HamburgerMenu open={open}/>
-                    <div onClick={() => setOpen(false)} css={bgHamburgerBtn(open)}/>
                 </div>
-                <div css={menuBtnClass(open)}>
+                <div css={menuBtnClass(open)} >
                     <img src={logo} alt="Stereh Avval Logo"/>
                     <LinkMenu menuName={"صفحه اصلی"} link={"/"}/>
                     <LinkMenu menuName={" خدمات ما"} link={"#"}/>
                     <LinkMenu menuName={"درباره ما"} link={"#"}/>
                     <LinkMenu menuName={"تماس با ما"} link={"/ContactUs"}/>
-
                 </div>
                 <div css={actionBtnClass}>
                     <NavRequestBtn title={"ثبت درخواست"}/>
