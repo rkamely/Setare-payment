@@ -64,11 +64,11 @@ const requestBtn = css`
   }
 `
 
-function NavRequestBtn() {
+function NavRequestBtn(props) {
     return (
         <React.Fragment>
             <button css={requestBtn}>
-                <span>ثبت درخواست</span>
+                <span>{props.title}</span>
             </button>
         </React.Fragment>
     );

@@ -50,7 +50,7 @@ function LinkMenu(props) {
 
     return (
         <React.Fragment>
-            <Link css={linkMenuCSS}> {props.menuName} </Link>
+            <Link to={props.link} css={linkMenuCSS}> {props.menuName} </Link>
         </React.Fragment>
     );
 }

@@ -44,6 +44,7 @@ const footerLogoCSS = css`
     border-top: 2px solid #919191;
     padding-top: 10px;
   }
+
   @media (max-width: 768px) {
     display: none
   }
@@ -87,12 +88,13 @@ const footerContactCSS = css`
   a {
     text-decoration: none;
     color: #919191;
-    span{
+
+    span {
       @media (max-width: 768px) {
         font-size: .8rem;
       }
     }
-    
+
     > :nth-child(1) {
       color: #919191;
       margin-left: 10px;

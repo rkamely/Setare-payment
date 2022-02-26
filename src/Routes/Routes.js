@@ -7,6 +7,8 @@ import {BrowserRouter, Switch} from 'react-router-dom';
 function Routes() {
     const Home = React.lazy(() =>
         import('./../Pages/Home'));
+    const ContactUs = React.lazy(() =>
+        import('./../Pages/ContactUs'));
     const HeaderAndFooter = React.lazy(() =>
         import('./../HOC/HeaderAndFooter'));
 
@@ -18,6 +20,7 @@ function Routes() {
                 }>
                     <Switch>
                         <HeaderAndFooter exact path="/" component={Home}/>
+                        <HeaderAndFooter exact path="/ContactUs" component={ContactUs}/>
                     </Switch>
                 </React.Suspense>
             </BrowserRouter>

@@ -136,13 +136,14 @@ function Header() {
                 </div>
                 <div css={menuBtnClass(open)}>
                     <img src={logo} alt="Stereh Avval Logo"/>
-                    <LinkMenu menuName={"صفحه اصلی"}/>
-                    <LinkMenu menuName={"سرویس ها"}/>
-                    <LinkMenu menuName={"ویژگی ها"}/>
-                    <LinkMenu menuName={"درباره ما"}/>
+                    <LinkMenu menuName={"صفحه اصلی"} link={"/"}/>
+                    <LinkMenu menuName={" خدمات ما"} link={"#"}/>
+                    <LinkMenu menuName={"درباره ما"} link={"#"}/>
+                    <LinkMenu menuName={"تماس با ما"} link={"/ContactUs"}/>
+
                 </div>
                 <div css={actionBtnClass}>
-                    <NavRequestBtn/>
+                    <NavRequestBtn title={"ثبت درخواست"}/>
                     <div>
                         <NavIcon source={Search} alt={"Search"} href={"#"}/>
                         <NavIcon source={Telephone} alt={"Phone"} href={"tel:+989199001193"}/>
