@@ -3,9 +3,9 @@
 /** @jsxImportSource @emotion/react */
 
 import React from "react";
-import * as Variable from '../Constants/Variables';
+import * as Variable from '../../Constants/Variables';
 import {jsx, css, keyframes} from '@emotion/react';
-import Video from '../Assets/Videos/Video.mp4'
+import Video from '../../Assets/Videos/Video.mp4'
 
 const videoTextForward = keyframes`
   0% {
@@ -31,7 +31,7 @@ const videoSectionClass = css`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: calc (100vh - 150px) !important;
+  
   @media (max-width: 768px) {
     margin-top: 5rem ;
   }
@@ -39,10 +39,12 @@ const videoSectionClass = css`
 const videoClass = css`
   width: 98%;
   object-fit: cover;
-  filter: blur(3px) brightness(40%);
+  filter: blur(3px) brightness(30%);
   overflow: hidden;
-
-
+  height: 80vh ;
+  @media (max-width: 768px) {
+    height: 88vh;
+  }
 `
 const textVideoClass = css`
   display: flex;

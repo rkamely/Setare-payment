@@ -4,14 +4,14 @@
 import React from "react";
 import {jsx, css} from '@emotion/react'
 import * as Variable from '../Constants/Variables';
-import VideoHomePage from "../Containers/VideoHomePage";
-import Services from "../Containers/Services"
+import VideoHomePage from "../Containers/HomePage/VideoHomePage";
+import Services from "../Containers/HomePage/Services/Services"
 import Slogan from "../Containers/Slogan"
-import Features from "../Containers/Features";
+import Features from "../Containers/HomePage/Features/Features";
 
 
 const backgroundHome = css`
-    background-image: ${Variable.backgroundColor};
+  background-image: ${Variable.backgroundColor};
 
   //@media (max-width: 500px) {
   //  background-color: green;
@@ -24,7 +24,8 @@ function Home() {
             <main css={backgroundHome}>
                 <VideoHomePage/>
                 <Services/>
-                <Slogan/>
+                <Slogan title={"ستاره اول همراه در پرداخت"} description={"از بزرکترین ارائه دهندگان خدمات پرداخت یاری"}
+                        height={"400px"}/>
                 <Features/>
             </main>
         </React.Fragment>

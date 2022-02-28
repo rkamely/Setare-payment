@@ -12,6 +12,10 @@ const iconNavCSS = css`
   width: 25px;
   height: 25px;
   transition: .1s linear;
+  @media (max-width: 768px) {
+    display: none;
+
+  }
 `
 
 

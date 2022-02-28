@@ -3,13 +3,13 @@
 /** @jsxImportSource @emotion/react */
 
 import React from "react";
-import * as Variable from '../Constants/Variables';
+import * as Variable from '../../../Constants/Variables';
 import {jsx, css, keyframes} from '@emotion/react';
 import {Link} from "react-router-dom"
-import pic1 from '../Assets/Card/image-intro-1.jpg'
-import pic2 from '../Assets/Card/image-intro-4.jpg'
-import pic3 from '../Assets/Card/startup-image-1.jpg'
-import pic4 from "../Assets/Card/startup-image-5.jpg"
+import pic1 from '../../../Assets/Card/image-intro-1.jpg'
+import pic2 from '../../../Assets/Card/image-intro-4.jpg'
+import pic3 from '../../../Assets/Card/startup-image-1.jpg'
+import pic4 from "../../../Assets/Card/startup-image-5.jpg"
 import {BsArrowRight} from "react-icons/bs"
 import CardService from "./CardService";
 

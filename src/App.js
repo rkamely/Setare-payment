@@ -4,6 +4,8 @@
 import React from "react";
 import {Global, css} from '@emotion/react'
 import Routes from './Routes/Routes'
+import * as Variable from './Constants/Variables';
+
 
 const global = () => css`
   @font-face {
@@ -26,6 +28,7 @@ const global = () => css`
 
     h1, h2, h3, h4, h5, h6, p {
       text-align: justify;
+      color: ${Variable.navFontColor};
     }
 
     h1 {

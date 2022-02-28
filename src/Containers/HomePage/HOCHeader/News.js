@@ -5,7 +5,7 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {jsx, css, keyframes} from '@emotion/react';
-import * as Variable from '../Constants/Variables';
+import * as Variable from '../../../Constants/Variables';
 
 const animation = keyframes`
   0% {

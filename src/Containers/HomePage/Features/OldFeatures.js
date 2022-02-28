@@ -4,9 +4,9 @@
 
 import React from "react";
 import {jsx, css, keyframes} from '@emotion/react'
-import callCenter from "./../Assets/Img/Calling-amico.svg"
-import cashOut from "./../Assets/Img/Cash Payment-bro.svg"
-import certification from "./../Assets/Img/Certification-rafiki.svg"
+import callCenter from "../../../Assets/Img/Calling-amico.svg"
+import cashOut from "../../../Assets/Img/Cash Payment-bro.svg"
+import certification from "../../../Assets/Img/Certification-rafiki.svg"
 
 
 const featuresContainerCSS = css`

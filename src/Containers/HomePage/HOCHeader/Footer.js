@@ -5,19 +5,20 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {css} from '@emotion/react';
-import footerBg from "../Assets/Img/Footer-svgWave.png";
-import logo from "./../Assets/Img/01 - SetareAval.png"
-import * as Variable from '../Constants/Variables';
+import footerBg from "../../../Assets/Img/Footer-svgWave.png";
+import logo from "../../../Assets/Img/01 - SetareAval.png"
+import * as Variable from '../../../Constants/Variables';
 import {BsWhatsapp, BsInstagram} from 'react-icons/bs';
 import {MdAttachEmail} from 'react-icons/md';
-import {FaRoute, FaTelegramPlane, FaPhoneVolume} from 'react-icons/fa';
+import {FaTelegramPlane, FaPhoneVolume} from 'react-icons/fa';
+import {MdLocationOn} from 'react-icons/md';
 
 
 const footerSectionCSS = css`
   color: #919191;
   background-color: #474747;
   background-image: url(${footerBg});
-  height: 500px;
+  height: auto;
   width: 100%;
   background-attachment: fixed;
   background-position: center;
@@ -29,7 +30,10 @@ const footerSectionCSS = css`
   align-items: flex-start;
   padding-top: 3rem;
   @media (max-width: 768px) {
-    padding-top: 0;
+    padding: 0 0 50px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `
 const footerLogoCSS = css`
@@ -43,6 +47,7 @@ const footerLogoCSS = css`
   h5 {
     border-top: 2px solid #919191;
     padding-top: 10px;
+    color: #919191;
   }
 
   @media (max-width: 768px) {
@@ -55,9 +60,9 @@ const linksFooterCSS = css`
   flex-direction: column;
   justify-content: flex-start;
   align-self: flex-start;
-
-  & > :first-child {
-    border-top: 2px solid #919191;;
+  @media (max-width: 768px) {
+    padding: 3rem 2.5rem 0 2.5rem;
+    width: 100%;
   }
 
   a {
@@ -82,14 +87,19 @@ const footerContactCSS = css`
   font-size: 1rem;
   padding-top: 5rem;
   @media (max-width: 768px) {
-    width: 50%;
+    width: 85%;
+    padding-top: 1rem;
+    align-items: center;
+
   }
 
-  a {
+  > a {
     text-decoration: none;
     color: #919191;
 
     span {
+      margin-right: 10px;
+
       @media (max-width: 768px) {
         font-size: .8rem;
       }
@@ -97,8 +107,8 @@ const footerContactCSS = css`
 
     > :nth-child(1) {
       color: #919191;
-      margin-left: 10px;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      width: 20%;
     }
 
     &:hover > * {
@@ -113,6 +123,10 @@ const footerContactCSS = css`
     align-items: center;
     padding: 5px 0;
     margin: 5px 0;
+    @media (max-width: 768px) {
+      width: 100%;
+
+    }
   }
 `
 const socialIconCSS = css`
@@ -120,18 +134,25 @@ const socialIconCSS = css`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-
-  a {
-
-    margin: .5rem;
-
-    > * {
-      font-size: 1.6rem !important;
-
-    }
+  @media (max-width: 768px) {
+    justify-content: space-around;
+    width: 100%;
 
   }
 
+  > a {
+    margin: .5rem;
+    text-decoration: none;
+    color: #919191;
+
+    &:hover > * {
+      color: #dadada;
+    }
+
+    > * {
+      font-size: 2rem;
+    }
+  }
 `
 const licenseCSS = css`
   font-size: .9rem;
@@ -174,7 +195,7 @@ function Footer() {
                     </a>
                     <a target={"_blank"}
                        href={"https://www.google.com/maps/place/%D8%B3%D8%AA%D8%A7%D8%B1%D9%87+%DB%8C%DA%A9%E2%80%AD/@35.7797165,51.3743237,19z/data=!4m5!3m4!1s0x3f8e077df52d20bb:0xb41d4b97fc84bc2c!8m2!3d35.7796364!4d51.3750377"}>
-                        <FaRoute/>
+                        <MdLocationOn/>
                         <span>سعادت آباد، خیابان کیان ۱۳ شرقی، پلاک ۲</span>
                     </a>
                     <div css={socialIconCSS}>

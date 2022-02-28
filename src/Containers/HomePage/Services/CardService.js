@@ -3,13 +3,13 @@
 /** @jsxImportSource @emotion/react */
 
 import React from "react";
-import * as Variable from '../Constants/Variables';
+import * as Variable from '../../../Constants/Variables';
 import {jsx, css, keyframes} from '@emotion/react';
 import {Link} from "react-router-dom"
-import pic1 from '../Assets/Card/image-intro-1.jpg'
-import pic2 from '../Assets/Card/image-intro-4.jpg'
-import pic3 from '../Assets/Card/startup-image-1.jpg'
-import pic4 from "../Assets/Card/startup-image-5.jpg"
+import pic1 from '../../../Assets/Card/image-intro-1.jpg'
+import pic2 from '../../../Assets/Card/image-intro-4.jpg'
+import pic3 from '../../../Assets/Card/startup-image-1.jpg'
+import pic4 from "../../../Assets/Card/startup-image-5.jpg"
 import {BsArrowRight} from "react-icons/bs"
 
 
@@ -30,6 +30,9 @@ const card = css`
   @media (max-width: 768px) {
     width: 45%;
   }
+  @media (max-width: 600px) {
+    width: 90%;
+  }
 
 
   &:hover > img {
@@ -37,7 +40,7 @@ const card = css`
     transform: scale(1.1);
   }
 
-  &:hover button {
+  &:hover a {
     bottom: 0;
   }
 
@@ -55,17 +58,20 @@ const card = css`
     height: 50%;
     z-index: 1000;
     background-color: #FFFFFF;
-    padding: 10px;
+    padding: 20px 15%;
+    width: 100%;
 
     > * {
       margin: 5px auto;
-    
+
     }
+
     h3 {
       @media (max-width: 768px) {
         font-size: 1rem;
       }
     }
+
     h6 {
       @media (max-width: 768px) {
         font-size: .7rem;
@@ -74,13 +80,13 @@ const card = css`
 
   }
 
-  > button {
+  > a {
     position: absolute;
-    bottom: -40px;
+    bottom: -60px;
     z-index: 2000;
     width: 100%;
     border: 0;
-    height: 40px;
+    height: 60px;
     background-color: #F9A03F;
     color: #FFFFFF;
     transition: .5s;
@@ -89,21 +95,25 @@ const card = css`
     justify-content: center;
     align-items: center;
 
-    &:hover > :nth-child(1) {
-      transform: scale(1)
+    &:hover > :nth-child(2) {
+      transform: scale(1) rotateY(180deg);
     }
 
     > * {
       color: #ffffff;
     }
 
-    > :nth-child(1) {
-      font-size: 15px;
+    > :nth-child(2) {
+      font-size: 1.5rem;
       transform: scale(0);
       transition: .5s;
+      margin-right: 1rem;
+      @media (max-width: 768px) {
+        display: none
+      }
     }
 
-    a {
+    span {
       text-decoration: none;
       padding: 0 5px;
     }
@@ -121,10 +131,10 @@ function CardService(props) {
                     <h3>{props.title}</h3>
                     <h6>{props.description}</h6>
                 </div>
-                <button>
+                <Link>
+                    <span>اطلاعات بیشتر</span>
                     <BsArrowRight/>
-                    <Link>اطلاعات بیشتر</Link>
-                </button>
+                </Link>
             </div>
         </React.Fragment>
     )

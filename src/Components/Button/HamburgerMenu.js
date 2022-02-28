@@ -23,8 +23,8 @@ const hamburgerCSS = css`
   }
 `
 const hamburgerBtnCSS = (open) => css`
-  width: 40px;
-  height: 6px;
+  width: 35px;
+  height: 4px;
   background-color: ${Variable.navFontColor};
   border-radius: 5px;
   transform: ${open ? "translateX(-50px)" : "translateX(0)"};
@@ -34,19 +34,19 @@ const hamburgerBtnCSS = (open) => css`
   &:before, &:after {
     content: "";
     position: absolute;
-    width: 40px;
-    height: 6px;
+    width: 35px;
+    height: 4px;
     background-color: ${Variable.navFontColor};
     border-radius: 5px;
     transition: all 0.5s ease-in-out;
   }
 
   &:before {
-    transform: ${open ? "  rotate(45deg) translate(35px,-35px)" : "translateY(-16px)"};
+    transform: ${open ? "  rotate(45deg) translate(35px,-35px)" : "translateY(-10px)"};
   }
 
   &:after {
-    transform: ${open ? "  rotate(-45deg) translate(35px,35px)" : "translateY(16px)"};
+    transform: ${open ? "  rotate(-45deg) translate(35px,35px)" : "translateY(10px)"};
   }
 `
 

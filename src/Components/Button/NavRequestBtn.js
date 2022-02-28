@@ -18,7 +18,7 @@ const requestBtn = css`
   z-index: 0;
   font-weight: 500;
   @media (max-width: 768px) {
-    width: 100px;
+    width: 200px;
 
   }
 

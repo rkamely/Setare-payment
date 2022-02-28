@@ -3,18 +3,18 @@
 /** @jsxImportSource @emotion/react */
 
 import React, {useEffect, useState} from "react";
-import * as Variable from '../Constants/Variables';
-import {jsx, css} from '@emotion/react';
-import logo from '../Assets/Img/01 - SetareAval.png'
-import Telephone from '../Assets/Img/telephone-call.png'
-import Search from '../Assets/Img/Search.png'
-import LogoutIcon from "../Assets/Img/LogoutIcon.png"
-import LinkMenu from "../Components/Link/LinkMenu";
-import NavIcon from "../Components/Button/NavIcon";
-import NavRequestBtn from "../Components/Button/NavRequestBtn";
-import HamburgerMenu from "../Components/Button/HamburgerMenu";
+import * as Variable from '../../../Constants/Variables';
+import {jsx, css, keyframes} from '@emotion/react';
+import logo from '../../../Assets/Img/01 - SetareAval.png'
+import Telephone from '../../../Assets/Img/telephone-call.png'
+import Search from '../../../Assets/Img/Search.png'
+import LogoutIcon from "../../../Assets/Img/LogoutIcon.png"
+import LinkMenu from "../../../Components/Link/LinkMenu";
+import NavIcon from "../../../Components/Button/NavIcon";
+import NavRequestBtn from "../../../Components/Button/NavRequestBtn";
+import HamburgerMenu from "../../../Components/Button/HamburgerMenu";
 
-const navClass = display => css`
+const navClass = (display) => css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -25,7 +25,7 @@ const navClass = display => css`
   border-bottom: ${Variable.border};
   border-top: ${Variable.border};
   z-index: 3000;
-  position: ${display ? "fixed" : "block"};
+  position: ${display ? "sticky" : "block"};
   top: 0;
   width: 100%;
   @media (max-width: 768px) {
@@ -46,6 +46,15 @@ const bgHamburgerBtn = (open) => css`
     left: 0;
   }
 `
+
+const hamburger = keyframes`
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`
 const menuBtnClass = (open) => css`
   width: 70%;
   display: flex;
@@ -55,16 +64,16 @@ const menuBtnClass = (open) => css`
   position: relative;
   transition: all 1s ease-in-out;
   z-index: 3000;
-
   @media (max-width: 768px) {
-    background-color: #FFFFFF;
+    background-color: #fdfbf9;
     display: ${open ? "flex" : "none"};
     flex-direction: column;
     position: absolute;
     right: 0;
     top: 4.9rem;
-    width: 20%;
-
+    width: 30%;
+    animation: ${hamburger} 1s;
+    height: 100vh;
   }
   @media (max-width: 600px) {
     width: 30%;
@@ -73,7 +82,7 @@ const menuBtnClass = (open) => css`
   > * {
     padding: 0 10px;
     @media (max-width: 768px) {
-      border-bottom: 1px solid #DCE0ECFF ;
+      border-bottom: 1px solid #FFF1E2FF ;
       width: 100%;
     }
   }
@@ -84,6 +93,13 @@ const menuBtnClass = (open) => css`
     @media (max-width: 768px) {
       display: none;
     }
+   
+  }
+  > :nth-child(2),>:nth-child(3) ,>:nth-child(4){
+    display: none;
+    @media (max-width: 768px) {
+      display: flex;
+    }
   }
 `
 const actionBtnClass = css`
@@ -93,8 +109,7 @@ const actionBtnClass = css`
   justify-content: space-around;
   align-items: center;
   @media (max-width: 768px) {
-    width: 70%;
-
+    width: 50%;
   }
 
   > * {
@@ -136,12 +151,17 @@ function Header() {
                 <div onClick={() => setOpen(!open)}>
                     <HamburgerMenu open={open}/>
                 </div>
-                <div css={menuBtnClass(open)} >
+                <div css={menuBtnClass(open)}>
                     <img src={logo} alt="Stereh Avval Logo"/>
+                    <LinkMenu menuName={"تماس فوری"} link={"#"}/>
+                    <LinkMenu menuName={"ورود"} link={"#"}/>
+                    <LinkMenu menuName={"جستجو"} link={"#"}/>
                     <LinkMenu menuName={"صفحه اصلی"} link={"/"}/>
                     <LinkMenu menuName={" خدمات ما"} link={"#"}/>
                     <LinkMenu menuName={"درباره ما"} link={"#"}/>
                     <LinkMenu menuName={"تماس با ما"} link={"/ContactUs"}/>
+
+
                 </div>
                 <div css={actionBtnClass}>
                     <NavRequestBtn title={"ثبت درخواست"}/>
