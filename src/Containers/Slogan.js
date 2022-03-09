@@ -36,6 +36,10 @@ const bgSloganCss = (height, description) => css`
     display: ${(description === "" || null || undefined) ? "none" : "block"};
     font-size: 1.2rem !important;
     margin-top: 2rem;
+    @media (max-width: 768px) {
+      font-size: .9rem !important;
+      font-weight: 100;
+    }
   }
 
 `

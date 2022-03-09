@@ -5,9 +5,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {css} from '@emotion/react';
-import footerBg from "../../../Assets/Img/Footer-svgWave.png";
-import logo from "../../../Assets/Img/01 - SetareAval.png"
-import * as Variable from '../../../Constants/Variables';
+import footerBg from "../../Assets/Img/Footer-svgWave.png";
+import logo from "../../Assets/Img/01 - SetareAval.png"
+import * as Variable from '../../Constants/Variables';
 import {BsWhatsapp, BsInstagram} from 'react-icons/bs';
 import {MdAttachEmail} from 'react-icons/md';
 import {FaTelegramPlane, FaPhoneVolume} from 'react-icons/fa';
@@ -16,9 +16,8 @@ import {MdLocationOn} from 'react-icons/md';
 
 const footerSectionCSS = css`
   color: #919191;
-  background-color: #474747;
+  background-color: #343434;
   background-image: url(${footerBg});
-  height: auto;
   width: 100%;
   background-attachment: fixed;
   background-position: center;
@@ -28,12 +27,13 @@ const footerSectionCSS = css`
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  padding-top: 3rem;
+  padding: 3rem 0;
   @media (max-width: 768px) {
-    padding: 0 0 50px 0;
+    padding: 1rem 0;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    height: 1000px;
   }
 `
 const footerLogoCSS = css`
@@ -44,10 +44,11 @@ const footerLogoCSS = css`
     height: 70px;
   }
 
-  h5 {
+  h6 {
     border-top: 2px solid #919191;
     padding-top: 10px;
     color: #919191;
+    font-weight: 500;
   }
 
   @media (max-width: 768px) {
@@ -61,17 +62,20 @@ const linksFooterCSS = css`
   justify-content: flex-start;
   align-self: flex-start;
   @media (max-width: 768px) {
-    padding: 3rem 2.5rem 0 2.5rem;
+    padding: 0;
     width: 100%;
+    margin: 2rem auto;
   }
 
   a {
     text-decoration: none;
     color: #919191;
     padding: 5px 0;
-    font-size: .9rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 400;
     position: relative;
+    text-align: center;
+
 
     &:hover {
       color: #dadada;
@@ -87,7 +91,7 @@ const footerContactCSS = css`
   font-size: 1rem;
   padding-top: 5rem;
   @media (max-width: 768px) {
-    width: 85%;
+    width: 100%;
     padding-top: 1rem;
     align-items: center;
 
@@ -97,11 +101,12 @@ const footerContactCSS = css`
     text-decoration: none;
     color: #919191;
 
+
     span {
       margin-right: 10px;
 
       @media (max-width: 768px) {
-        font-size: .8rem;
+        font-size: 1rem;
       }
     }
 
@@ -123,21 +128,18 @@ const footerContactCSS = css`
     align-items: center;
     padding: 5px 0;
     margin: 5px 0;
-    @media (max-width: 768px) {
-      width: 100%;
 
-    }
   }
 `
 const socialIconCSS = css`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
+  width: 100%;
   @media (max-width: 768px) {
     justify-content: space-around;
-    width: 100%;
-
+    width: auto;
   }
 
   > a {
@@ -155,8 +157,13 @@ const socialIconCSS = css`
   }
 `
 const licenseCSS = css`
-  font-size: .9rem;
+  font-size: .7rem;
   text-align: justify;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    text-align: center;
+
+  }
 `
 
 
@@ -167,14 +174,14 @@ function Footer() {
             <div css={footerSectionCSS}>
                 <div css={footerLogoCSS}>
                     <img src={logo} alt="setareh avval logo"/>
-                    <h5>
+                    <h6>
                         از مهم‌ترین اهداف شرکت ستاره اول می‌توان به کوتاه نمودن چرخه
                         دریافت قبوض و تسریع در روند وصول مطالبات، راحت‌ترین و سریع‌ترین روش خرید شارژ مشترکین اعتباری به
                         صورت الکترونیکی و لحظه‌ای و توسعه و تنوع محصول با تحلیل نیاز مشترکین، اشاره کرد . فعالیت های این
                         شرکت منجر به حذف واسطــــه و توسعه فروش انواع محصولات همراه اول از جمله شارژ فوق العاده، بانوان،
                         جوانان، وفاداری، دلخواه، مستقیم و شارژ اضطراری، انواع بسته‌های مختلف اینترنتی و پرداخت قبوض شده
                         است .
-                    </h5>
+                    </h6>
                 </div>
                 <div css={linksFooterCSS}>
                     <Link>صفحه اصلی</Link>

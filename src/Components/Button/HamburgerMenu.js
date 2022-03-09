@@ -11,7 +11,7 @@ import * as Variable from '../../Constants/Variables';
 const hamburgerCSS = css`
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 80px;
   height: 80px;

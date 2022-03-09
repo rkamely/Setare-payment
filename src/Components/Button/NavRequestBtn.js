@@ -8,19 +8,18 @@ import {jsx, css} from '@emotion/react';
 
 const requestBtn = css`
   position: relative;
-  width: 150px;
   height: 40px;
+  padding: 10px 25px;
   cursor: pointer;
+  width: 150px;
   background-color: ${Variable.actionBtnBg};
   border: none;
   transition: all .2s linear;
   color: ${Variable.btnFontColor};
   z-index: 0;
   font-weight: 500;
-  @media (max-width: 768px) {
-    width: 200px;
-
-  }
+  white-space: nowrap;
+  
 
   &:after {
     content: '';
@@ -54,21 +53,23 @@ const requestBtn = css`
     width: 50%;
   }
 
-  span {
+  a {
     z-index: 1;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
+    text-decoration: none;
+    color: #FFFFFF;
   }
 `
 
-function NavRequestBtn(props) {
+function NavRequestBtn({title,href}) {
     return (
         <React.Fragment>
             <button css={requestBtn}>
-                <span>{props.title}</span>
+                <a href={href}>{title}</a>
             </button>
         </React.Fragment>
     );

@@ -19,6 +19,7 @@ const global = () => css`
     font-family: 'IRANSans';
     text-decoration: none;
     direction: rtl;
+    scroll-behavior:smooth;
 
     :after :before {
       box-sizing: border-box;

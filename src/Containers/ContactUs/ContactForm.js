@@ -14,14 +14,20 @@ const sendMail = css`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   border: ${Variable.border};
   box-shadow: ${Variable.boxShadow};
   padding: 2rem;
   width: 100%;
+  margin: auto;
   @media (max-width: 768px) {
     padding: 1rem;
-
+    width: 85%;
+    margin: auto;
+  }
+  > * {
+    width: 90%;
+    margin: 1rem .5rem;
   }
 `
 
@@ -29,13 +35,12 @@ const sendMail = css`
 function ContactForm() {
     const handleContactUsForm = (e) => {
         e.preventDefault()
-        console.log("form submitted")
     }
     return (
         <React.Fragment>
             <form css={sendMail} onSubmit={handleContactUsForm}>
-                <FormInput type={"text"} placeHolder={"نام و نام خانوادگی"}/>
-                <FormInput type={"text"} placeHolder={"شمارموبایل"}/>
+                <FormInput type={"text"} placeholder={"نام و نام خانوادگی"}/>
+                <FormInput type={"text"} placeholder={"شمارموبایل"}/>
                 <TextareaForm name={''} id={''} row={5} column={''} placeholder={"لطفا پیام خود را ثبت کنید"}/>
                 <FormButton content={"ارسال"}/>
             </form>

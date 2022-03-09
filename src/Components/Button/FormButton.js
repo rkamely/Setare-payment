@@ -11,7 +11,6 @@ const FormBtn = css`
   margin: 1.5rem .5rem;
   border: ${Variable.border};
   cursor: pointer;
-  width: 90%;
   background-color: ${Variable.level2actionBtnBg};
   color: ${Variable.btnFontColor};
   transition: .25s;

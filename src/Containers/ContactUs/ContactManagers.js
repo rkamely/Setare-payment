@@ -13,6 +13,10 @@ const emailAddress = css`
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: inherit;
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: auto;
+  }
 `
 
 function ContactManagers() {

@@ -7,31 +7,37 @@ import {jsx, css} from '@emotion/react';
 import * as Variable from '../../Constants/Variables';
 
 
-
 const addressBox = css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-right: 1rem;
   height: 15rem;
   overflow: hidden;
   border: ${Variable.border};
   border-radius: ${Variable.radius};
   box-shadow: ${Variable.boxShadow};
-  width: 95%;
+  width: 80%;
   margin: auto;
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
     padding-top: 1rem;
+    
   }
 
   > img {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
+    margin-right: 1rem;
     @media (max-width: 768px) {
       margin-bottom: 1rem;
+    }
+  }
+
+  > :nth-child(2) {
+    @media (max-width: 768px) {
+      padding: 0 10px;
     }
   }
 
@@ -46,9 +52,10 @@ const addressBox = css`
   }
 
   > a {
-    width: 40%;
+    width: 50%;
     display: flex;
     object-fit: cover;
+    position: relative;
     @media (max-width: 768px) {
       width: 100%;
       justify-content: center;
@@ -56,6 +63,17 @@ const addressBox = css`
 
     > img {
       width: 100%;
+      height: 15rem;
+    }
+
+    > div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.23012955182072825) 80%, rgba(255, 255, 255, 0.4962359943977591) 90%, rgba(255, 255, 255, 1) 100%);
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 `
@@ -76,8 +94,9 @@ function Address({mainImg, altMainImg, address, phone, fax, postalCode, email, m
                         <div>{email}</div>
                     </div>
                 </div>
-                <a href={mapHref}>
+                <a href={mapHref} target="_blank">
                     <img src={map} alt={altMap}/>
+                    <div/>
                 </a>
             </div>
         </React.Fragment>

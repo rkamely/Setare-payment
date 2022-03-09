@@ -20,20 +20,22 @@ const card = css`
   align-items: center;
   margin: 20px auto;
   width: 23%;
-  height: 400px;
+  height: 450px;
   border: ${Variable.border};
   border-radius: ${Variable.radius};
   box-shadow: ${Variable.boxShadow};
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  @media (max-width: 999px) {
+    height: 400px;
+  }
   @media (max-width: 768px) {
     width: 45%;
   }
   @media (max-width: 600px) {
     width: 90%;
   }
-
 
   &:hover > img {
     filter: grayscale(0);
@@ -58,7 +60,7 @@ const card = css`
     height: 50%;
     z-index: 1000;
     background-color: #FFFFFF;
-    padding: 20px 15%;
+    padding: 10px 15px;
     width: 100%;
 
     > * {
@@ -73,6 +75,7 @@ const card = css`
     }
 
     h6 {
+      font-weight: 500;
       @media (max-width: 768px) {
         font-size: .7rem;
       }
@@ -95,23 +98,24 @@ const card = css`
     justify-content: center;
     align-items: center;
 
+    > :nth-child(2) {
+      font-size: 1.5rem;
+      transform: scaleY(0);
+      transition: all .5s;
+      margin-right: 1rem;
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
     &:hover > :nth-child(2) {
-      transform: scale(1) rotateY(180deg);
+      transform: scaleX(1) rotate(180deg);
     }
 
     > * {
       color: #ffffff;
     }
 
-    > :nth-child(2) {
-      font-size: 1.5rem;
-      transform: scale(0);
-      transition: .5s;
-      margin-right: 1rem;
-      @media (max-width: 768px) {
-        display: none
-      }
-    }
 
     span {
       text-decoration: none;

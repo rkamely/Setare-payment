@@ -15,9 +15,11 @@ const featureCss = css`
   box-shadow: 0 30px 50px -3px #cfdae5;
   background-color: #FFFFFF;
   padding: 3rem 0;
+
   @media (max-width: 768px) {
     width: 80%;
     margin: 1.2rem auto;
+
   }
 
   img {

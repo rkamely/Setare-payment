@@ -24,7 +24,7 @@ function Home() {
             <main css={backgroundHome}>
                 <VideoHomePage/>
                 <Services/>
-                <Slogan title={"ستاره اول همراه در پرداخت"} description={"از بزرکترین ارائه دهندگان خدمات پرداخت یاری"}
+                <Slogan title={"ستاره اول همراه در پرداخت"} description={"از بزرگترین ارائه دهندگان خدمات پرداخت یاری"}
                         height={"400px"}/>
                 <Features/>
             </main>

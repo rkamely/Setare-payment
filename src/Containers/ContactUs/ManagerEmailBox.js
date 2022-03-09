@@ -37,15 +37,14 @@ const emailBox = css`
   }
 
   h3 {
-    @media (max-width: 768px) {
-      font-size: 1.3rem ;
+    font-size: 1.3rem ;
     }
   }
 
   h4 {
-    @media (max-width: 768px) {
       font-size: 1rem ;
-    }
+      font-weight: 100;
+    
   }
 
 `

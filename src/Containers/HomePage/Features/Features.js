@@ -17,10 +17,10 @@ const featuresContainerCSS = css`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  padding: 10rem 0;
+  padding: 4rem 0;
   background-color: #FFFFFF;
   @media (max-width: 768px) {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 `
 

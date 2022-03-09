@@ -4,6 +4,7 @@ import React from "react";
 export const fontColor = '#FFFFFF';
 export const backgroundColor = '#FFFFFF';
 export const border = '1px solid #f0eeee';
+export const activeBorder = '1px solid #e0dbdb';
 export const radius = '5px';
 export const boxShadow = '10px 10px 40px -9px #e8e2e2';
 export const btnFontColor = '#f3f0f0';

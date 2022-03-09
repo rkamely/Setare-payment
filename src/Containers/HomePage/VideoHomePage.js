@@ -58,19 +58,23 @@ const textVideoClass = css`
 
   > * {
     white-space: nowrap;
+    color: #FFFFFF;
   }
 
   h1 {
     animation: ${videoTextForward} 2s forwards;
     @media (max-width: 768px) {
       font-size: 3rem;
+      
     }
   }
 
   h4 {
     animation: ${videoTextBackward} 2s forwards;
+    font-weight: 100;
     @media (max-width: 768px) {
       font-size: 1rem;
+      
     }
   }
 `
