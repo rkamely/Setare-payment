@@ -15,6 +15,15 @@ const shopDocuments = css`
 `
 const pageHint = css`
   margin-top: 50px;
+  @media (max-width: 768px) {
+    h3{
+      font-size: 1rem;
+    }
+    h6{
+      font-size: .75rem;
+      font-weight: 100;
+    }
+  }
 `
 const shopInfo = css`
   display: flex;
@@ -28,6 +37,10 @@ const shopInfo = css`
   > * {
     width: 45%;
     margin: .5rem auto;
+    @media (max-width: 768px) {
+      width: 90%;
+
+    }
   }
 
   > select {
@@ -39,7 +52,10 @@ const shopInfo = css`
     border-radius: ${Variable.radius};
     cursor: pointer;
     position: relative;
-
+    
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
 
   }
 

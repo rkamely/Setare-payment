@@ -12,6 +12,15 @@ const identifying = css`
 `
 const pageHint = css`
   margin-top: 50px;
+  @media (max-width: 768px) {
+    h3{
+      font-size: 1rem;
+    }
+    h6{
+     font-size: .75rem;
+      font-weight: 100;
+    }
+  }
 `
 const inputs = css`
   display: flex;
@@ -20,13 +29,17 @@ const inputs = css`
   justify-content: space-around;
   align-items: center;
   margin: 20px auto;
-  //@media (max-width: 500px) {
-  //  background-color: green;
-  //}
+
   > * {
     width: 45%;
     margin: .5rem;
+  }
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    > * {
+      width: 90%;
+    }
   }
 `
 

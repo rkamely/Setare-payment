@@ -15,20 +15,19 @@ import ShopDoc from "../Containers/RequestGateway/ShopDoc";
 
 
 const requestGateway = css`
-  width: 80%;
+  width: 90%;
   margin: 50px auto;
   @media (max-width: 768px) {
     margin: 7rem auto;
+    text-align: center;
   }
 
   * {
     font-family: IRANSans !important;
-    margin-left: .2rem;
   }
 
-
-
 `
+
 const stepperBtn = css`
   display: flex;
   flex-direction: row;

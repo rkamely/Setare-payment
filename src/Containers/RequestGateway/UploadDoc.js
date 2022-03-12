@@ -14,6 +14,16 @@ const upload = css`
 `
 const pageHint = css`
   margin-top: 50px;
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1rem;
+    }
+
+    h6 {
+      font-size: .75rem;
+      font-weight: 100;
+    }
+  }
 `
 const uploadContainer = css`
   display: flex;
@@ -21,12 +31,17 @@ const uploadContainer = css`
   margin: 50px auto;
   justify-content: space-around;
   width: 100%;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
 `
 const uploadBox = css`
   display: flex;
   flex-direction: column;
-  width: 40%;
+  align-items: center;
+  width: 30%;
   border: ${Variable.border};
   padding: .5rem;
   transition: .15s ease-in-out;
@@ -34,6 +49,18 @@ const uploadBox = css`
   &:hover{
     box-shadow: ${Variable.boxShadow};
     transform: scale(1.01);
+  }
+  @media (max-width: 768px) {
+    width: 40%;
+    margin: 1rem auto;
+
+
+  }
+  @media (max-width: 600px) {
+    width: 90%;
+    margin: 1rem auto;
+
+
   }
 
 `
@@ -62,7 +89,12 @@ const contentInput = css`
 
   > img {
     width: 100%;
-    
+    height: 200px;
+    @media (max-width: 768px) {
+ height: 200px;
+
+
+    }
   }
 `
 

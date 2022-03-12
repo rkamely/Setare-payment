@@ -22,11 +22,11 @@ const formInput = css`
 `
 
 
-function FormInput({type, placeholder}) {
+function FormInput({type, placeholder,focus}) {
 
     return (
         <React.Fragment>
-            <input css={formInput} type={type} placeholder={placeholder}/>
+            <input css={formInput} type={type} placeholder={placeholder} autoFocus={focus}/>
         </React.Fragment>
     );
 }
