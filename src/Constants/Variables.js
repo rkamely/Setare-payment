@@ -2,8 +2,15 @@ import React from "react";
 
 //All
 export const fontColor = '#FFFFFF';
+export const fontColorError = '#e70404';
+export const fontColorAccepted = '#07EC07FF';
+
 export const backgroundColor = '#FFFFFF';
 export const border = '1px solid #f0eeee';
+export const borderError = '1px solid #e70404';
+export const borderAccepted = '1px solid #07EC07FF';
+
+
 export const activeBorder = '1px solid #e0dbdb';
 export const radius = '5px';
 export const boxShadow = '10px 10px 40px -9px #e8e2e2';

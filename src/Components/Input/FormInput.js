@@ -6,28 +6,43 @@ import React from "react";
 import {jsx, css} from '@emotion/react';
 import * as Variable from '../../Constants/Variables';
 
+const formInputContainer = css`
+  display: flex;
+  flex-direction: column;
 
-const formInput = css`
+  span {
+    width: 100%;
+    color: ${Variable.fontColorError};
+    font-size: .7rem;
+    margin-top: .5rem;
+  }
+`
+const formInput = (error) => css`
   padding: 1rem;
   outline: none;
-  border: ${Variable.border};
+  border: ${(error === "" || error=== undefined) ? `${Variable.border}` : `${Variable.borderError}`};
   transition: all .5s;
   border-radius: ${Variable.radius};
 
   &:focus {
     box-shadow: ${Variable.boxShadow};
-    border: ${Variable.activeBorder};
+    border: ${(error === "" || error=== undefined) ? `${Variable.activeBorder}` : `${Variable.borderError}`};
 
   }
 `
 
 
-function FormInput({type, placeholder,focus}) {
-
+function FormInput({type, placeholder, focus, inputOnchange, property, error}) {
+    console.log(error)
     return (
-        <React.Fragment>
-            <input css={formInput} type={type} placeholder={placeholder} autoFocus={focus}/>
-        </React.Fragment>
+        <div css={formInputContainer}>
+            <input onChange={e => inputOnchange(e.target.value, property)}
+                   css={formInput(error)}
+                   type={type}
+                   placeholder={placeholder}
+                   autoFocus={focus}/>
+            {(error === "" || undefined) ? null : <span>{error}</span>}
+        </div>
     );
 }
 

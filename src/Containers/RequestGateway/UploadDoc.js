@@ -14,6 +14,9 @@ const upload = css`
 `
 const pageHint = css`
   margin-top: 50px;
+  h6{
+    font-weight: 100!important;
+  }
   @media (max-width: 768px) {
     h3 {
       font-size: 1rem;
@@ -21,7 +24,6 @@ const pageHint = css`
 
     h6 {
       font-size: .75rem;
-      font-weight: 100;
     }
   }
 `

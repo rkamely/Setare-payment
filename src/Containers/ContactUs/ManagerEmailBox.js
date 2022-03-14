@@ -19,6 +19,8 @@ const emailBox = css`
   padding: 1rem;
   margin: 1rem auto;
   transition: .25s;
+
+
   @media (max-width: 999px) {
     flex-direction: column;
 
@@ -37,15 +39,15 @@ const emailBox = css`
   }
 
   h3 {
-    font-size: 1.3rem ;
-    }
+    font-size: 1.3rem;
   }
+}
 
-  h4 {
-      font-size: 1rem ;
-      font-weight: 100;
-    
-  }
+h4 {
+  font-size: 1rem;
+  font-weight: 100;
+
+}
 
 `
 

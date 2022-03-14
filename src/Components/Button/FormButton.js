@@ -21,11 +21,11 @@ const FormBtn = css`
   }
 `
 
-function FormButton({content}) {
+function FormButton({content,type}) {
 
     return (
         <React.Fragment>
-            <button css={FormBtn}>{content}</button>
+            <button type={type} css={FormBtn}>{content}</button>
         </React.Fragment>
     );
 }

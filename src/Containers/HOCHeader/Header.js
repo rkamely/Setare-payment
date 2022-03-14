@@ -20,6 +20,8 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import FormInput from "../../Components/Input/FormInput";
+import SearchAnim from "../../Assets/Gifs/search.gif"
+
 
 const navClass = (display) => css`
   display: flex;
@@ -137,6 +139,7 @@ const searchContainer = css`
   input {
     margin: 5rem auto 0 auto;
     width: 50%;
+    z-index: 1000;
   }
 `
 const searchTitle = css`
@@ -146,6 +149,11 @@ const searchTitle = css`
   justify-content: space-between;
   background-color: ${Variable.bgNews};
 `
+const searchGif = css`
+  width: 300px;
+  margin: 0 auto;
+`
+
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -200,6 +208,7 @@ function Header() {
                     </Toolbar>
                 </AppBar>
                 <FormInput type={"text"} placeholder={"جستجو..."} focus={true}/>
+                <img css={searchGif} src={SearchAnim} alt="Searching"/>
             </Dialog>
 
             <div onClick={hamburgerBtn} css={bgHamburgerBtn(open)}/>

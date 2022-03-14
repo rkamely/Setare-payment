@@ -17,6 +17,10 @@ const emailAddress = css`
     width: 90%;
     margin: auto;
   }
+
+  > *:hover {
+    box-shadow: ${Variable.boxShadow};
+  }
 `
 
 function ContactManagers() {

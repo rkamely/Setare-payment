@@ -5,6 +5,7 @@
 import React from "react";
 import * as Variable from '../../Constants/Variables';
 import {jsx, css} from '@emotion/react';
+import {Link} from "react-router-dom"
 
 const requestBtn = css`
   position: relative;
@@ -65,11 +66,11 @@ const requestBtn = css`
   }
 `
 
-function NavRequestBtn({title,href}) {
+function NavRequestBtn({title,href,type}) {
     return (
         <React.Fragment>
             <button css={requestBtn}>
-                <a href={href}>{title}</a>
+                <Link to={href}>{title}</Link>
             </button>
         </React.Fragment>
     );

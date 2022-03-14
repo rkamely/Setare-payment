@@ -30,6 +30,7 @@ const addressBox = css`
     width: 7rem;
     height: 7rem;
     margin-right: 1rem;
+    object-fit: cover;
     @media (max-width: 768px) {
       margin-bottom: 1rem;
     }
@@ -64,6 +65,7 @@ const addressBox = css`
     > img {
       width: 100%;
       height: 15rem;
+      object-fit: cover;
     }
 
     > div {

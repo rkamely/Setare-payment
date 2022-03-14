@@ -29,11 +29,11 @@ const footerSectionCSS = css`
   align-items: flex-start;
   padding: 3rem 0;
   @media (max-width: 768px) {
-    padding: 1rem 0;
+    padding: 1rem 0 4rem 0;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 1000px;
+    height: auto;
   }
 `
 const footerLogoCSS = css`
