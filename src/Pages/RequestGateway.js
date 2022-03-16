@@ -81,7 +81,7 @@ function RequestGateway() {
             </Stepper>
             <div>
                 {activeStep === 0 ?
-                    <Identifying handleNext={handleNext}/> : activeStep === 1 ?
+                    <ShopDoc handleNext={handleNext}/> : activeStep === 1 ?
                         <UploadDoc handleNext={handleNext}/> : activeStep === 2 ? <ShopDoc/> : null}
 
             </div>

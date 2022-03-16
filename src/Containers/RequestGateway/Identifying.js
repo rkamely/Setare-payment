@@ -7,28 +7,12 @@ import * as Variable from '../../Constants/Variables';
 import FormInput from "../../Components/Input/FormInput";
 import FormButton from "../../Components/Button/FormButton";
 import IdentifyingValidation from "./IdentifyingValidation";
+import PageHint from "../../Components/PageHint";
 
 const identifying = css`
   button {
     margin-top: 4rem;
     width: 8rem;
-  }
-`
-const pageHint = css`
-  margin-top: 50px;
-
-  h6 {
-    font-weight: 100 !important;
-  }
-
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 1rem;
-    }
-
-    h6 {
-      font-size: .75rem;
-    }
   }
 `
 const inputs = css`
@@ -78,7 +62,6 @@ function Identifying({handleNext}) {
         phone: "",
     }
     const [error, setError] = useState(initialStateError)
-    const [complete, setComplete] = useState(false)
     const inputOnchange = (value, property) => {
         setIdentify({
             ...identify,
@@ -88,16 +71,13 @@ function Identifying({handleNext}) {
     const formIdentifyHandler = (e) => {
         e.preventDefault()
         IdentifyingValidation(identify)
-            .then((resolve)=>handleNext(resolve))
+            .then((resolve) => handleNext(resolve))
             .catch((err) => setError(err))
     }
 
     return (
         <div css={identifying}>
-            <div css={pageHint}>
-                <h3>اطلاعات اولیه</h3>
-                <h6>لطفا اطلاعات را صحیح وارد نمایید.</h6>
-            </div>
+            <PageHint title={"اطلاعات اولیه"} description={"لطفا اطلاعات را صحیح وارد نمایید."}/>
             <form onSubmit={formIdentifyHandler} action="" method="" css={inputs}>
                 <FormInput type={"text"} placeholder={"نام به فارسی"} inputOnchange={inputOnchange}
                            property={"firstName"} error={error.firstName}/>

@@ -7,27 +7,21 @@ import * as Variable from '../../Constants/Variables';
 import FormInput from "../../Components/Input/FormInput";
 import FormButton from "../../Components/Button/FormButton";
 import uploadLogo from "../../Assets/Img/Image upload-logo.svg"
-import uploadPic1 from "../../Assets/Img/Image upload-1.svg";
+import PageHint from "../../Components/PageHint";
+import SelectForm from "../../Components/Input/SelectForm";
+import FileInput from "../../Components/Input/FileInput";
+import ShopDocValidation from "./ShopDocValidation";
 
 const shopDocuments = css`
   margin: auto;
+  text-align: center;
+
+  > :last-child {
+    margin-top: 5rem;
+  }
 
 `
-const pageHint = css`
-  margin-top: 50px;
-  h6{
-    font-weight: 100!important;
-  }
-  @media (max-width: 768px) {
-    h3{
-      font-size: 1rem;
-    }
-    h6{
-      font-size: .75rem;
-    }
-  }
-`
-const shopInfo = css`
+const shopInfoCss = css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -54,8 +48,9 @@ const shopInfo = css`
     border-radius: ${Variable.radius};
     cursor: pointer;
     position: relative;
-    
+
   }
+
   @media (max-width: 768px) {
     flex-direction: column;
 
@@ -74,112 +69,125 @@ const taxInfo = css`
     margin-top: 1rem;
   }
 `
-const uploadBox = css`
-  border: ${Variable.border};
-  padding: .5rem;
-  margin: .5rem;
-  transition: .15s ease-in-out;
-  color: ${Variable.navFontColor};
-
-  &:hover {
-    box-shadow: ${Variable.boxShadow};
-    transform: scale(1.01);
-  }
-
-`
-const uploadInput = css`
-  cursor: pointer;
-  margin: auto;
-  height: auto;
-
-  input {
-    display: none;
-  }
-
-  > img {
-    width: 100%;
-    height: 150px;
-  }
-`
 
 
-function ShopDoc() {
-    const [code, setCode] = useState(true)
-    const handlerCode = () => {
-        setCode(false)
+function ShopDoc({handleNext}) {
+    const [shopInfo, setShopInfo] = useState({
+        shopName: "",
+        enShopName: "",
+        webSiteURL: "",
+        callBack: "",
+        emailShop: "",
+        phoneShop: "",
+        postalCodeShop: "",
+        classCode: "",
+        subClassCode: "",
+        activity: "",
+        noContract: "",
+        endDateContract: "",
+        uploadLogo: "",
+        accountNo: "",
+        taxCode: "",
+    })
+    const [error, setError] = useState({
+        shopName: "",
+        enShopName: "",
+        webSiteURL: "",
+        callBack: "",
+        emailShop: "",
+        phoneShop: "",
+        postalCodeShop: "",
+        classCode: "",
+        subClassCode: "",
+        activity: "",
+        noContract: "",
+        endDateContract: "",
+        uploadLogo: "",
+        accountNo: "",
+        taxCode: "",
+    })
+    const inputOnchange = (e, property) => {
+        setShopInfo({
+            ...shopInfo,
+            [property]: e.target.files[0],
+        })
     }
+    const inputOnchangeInput = (value, property) => {
+        setShopInfo({
+            ...shopInfo,
+            [property]: value,
+        })
+    }
+    const inputOnchangeSelect = (e, property) => {
+        setShopInfo({
+            ...shopInfo,
+            [property]: e.target.value,
+        })
+    }
+    const formShopHandler = (e) => {
+        e.preventDefault()
+        ShopDocValidation(shopInfo)
+            .then((resolve) => handleNext(resolve))
+            .catch((err) => setError(err))
+    }
+    console.log(shopInfo)
     return (
-        <div css={shopDocuments}>
-            <div css={pageHint}>
-                <h3> درخواست درگاه پرداخت </h3>
-                <h6>لطفا اطلاعات را صحیح وارد نمایید.</h6>
-            </div>
-            <section css={shopInfo}>
-                <FormInput type={"text"} placeholder={"نام فروشگاه به فارسی"}/>
-                <FormInput type={"text"} placeholder={"نام فروشگاه به انگلیسی"}/>
-                <FormInput type={"text"} placeholder={"آدرس وب سایت"}/>
-                <FormInput type={"text"} placeholder={"آدرس Call Back"}/>
-                <FormInput type={"text"} placeholder={"ایمیل فروشگاه"}/>
-                <FormInput type={"text"} placeholder={"شماره تلفن ثابت"}/>
-                <FormInput type={"text"} placeholder={"کد پستی"}/>
-                <select onChange={handlerCode} name="cars" id="cars" required>
-                    <option value="" disabled selected hidden>کد صنف</option>
-                    <option value="volvo">فروشگاه ها و لوازم باغبانی</option>
-                    <option value="saab">سازمان های سیاسی</option>
-                    <option value="mercedes">مبلمان اداری و تجاری</option>
-                    <option value="audi">خدمات حرفو چینی</option>
-                </select>
-
-                <select name="cars" id="cars" required disabled={code}>
-                    <option value="" disabled selected hidden>کد تکمیلی صنف</option>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                </select>
-                <select name="cars" id="cars" required>
-                    <option value="" disabled selected hidden>نوع مالکیت</option>
-                    <option value="volvo">اجاره ای</option>
-                    <option value="saab">مالک</option>
-                </select>
-                <FormInput type={"text"} placeholder={"شماره قرارداد اجاره"}/>
-                <FormInput type={"text"} placeholder={"تاریخ اتمام قرارداد اجاره"}/>
+        <form onSubmit={formShopHandler} css={shopDocuments}>
+            <PageHint title={"درخواست درگاه پرداخت"} description={"لطفا اطلاعات را صحیح وارد نمایید."}/>
+            <section css={shopInfoCss}>
+                <FormInput type={"text"} placeholder={"نام فروشگاه به فارسی"} inputOnchange={inputOnchangeInput}
+                           property={"shopName"} error={error.shopName}/>
+                <FormInput type={"text"} placeholder={"نام فروشگاه به انگلیسی"} inputOnchange={inputOnchangeInput}
+                           property={"enShopName"} error={error.enShopName}/>
+                <FormInput type={"text"} placeholder={"آدرس وب سایت"} inputOnchange={inputOnchangeInput}
+                           property={"webSiteURL"} error={error.webSiteURL}/>
+                <FormInput type={"text"} placeholder={"آدرس Call Back"} inputOnchange={inputOnchangeInput}
+                           property={"callBack"} error={error.callBack}/>
+                <FormInput type={"text"} placeholder={"ایمیل فروشگاه"} inputOnchange={inputOnchangeInput}
+                           property={"emailShop"} error={error.emailShop}/>
+                <FormInput type={"text"} placeholder={"شماره تلفن ثابت"} inputOnchange={inputOnchangeInput}
+                           property={"phoneShop"} error={error.phoneShop}/>
+                <FormInput type={"text"} placeholder={"کد پستی"} inputOnchange={inputOnchangeInput}
+                           property={"postalCodeShop"} error={error.postalCodeShop}/>
+                <SelectForm title={"کد صنف"} required={true} disabled={false}
+                            inputOnchangeSelect={inputOnchangeSelect} property={"classCode"}
+                            option={[{value: "001", title: "فروشگاه ها و لوازم باغبانی"},
+                                {value: "002", title: "سازمان های سیاسی"},
+                                {value: "003", title: "مبلمان اداری و تجاری"},
+                                {value: "004", title: "خدمات حرفو چینی"},
+                            ]}/>
+                <SelectForm title={"نوع مالکیت"} required={true} disabled={false}
+                            inputOnchangeSelect={inputOnchangeSelect} property={"activity"}
+                            option={[{value: "001", title: "اجاره ای"},
+                                {value: "002", title: "مالک"},
+                                {value: "003", title: "در رهن"},
+                            ]}/>
+                <FormInput type={"text"} placeholder={"شماره قرارداد اجاره"} inputOnchange={inputOnchangeInput}
+                           property={"classCode"} error={error.classCode}/>
+                <FormInput type={"text"} placeholder={"تاریخ اتمام قرارداد اجاره"} inputOnchange={inputOnchangeInput}
+                           property={"subClassCode"} error={error.subClassCode}/>
             </section>
             <section>
-                <div css={pageHint}>
-                    <h3> بارگذاری لوگوی فروشگاه </h3>
-                    <h6>فرمت JPG یا PNG برای تصاویر قابل قبول می‌باشد.</h6>
-                </div>
-                <div css={uploadBox}>
-                    <label css={uploadInput}>
-                        <input type="file" name="image_reference"/>
-                        <img src={uploadLogo} alt=""/>
-                    </label>
-                </div>
+                <PageHint title={"بارگذاری لوگوی فروشگاه"} description={"لطفا از فرمت های JPG و PNG استفاده فرمایید."}/>
+                <FileInput inputOnchange={inputOnchange} property={"uploadLogo"} image={uploadLogo} altImage={"logo"}
+                           error={error.uploadLogo}/>
             </section>
             <section css={accountInfo}>
-                <div css={pageHint}>
-                    <h3> اطلاعات حساب </h3>
-                    <h6>شماره شبای بانکی خود را اعلام فرمایید</h6>
-                </div>
-                <FormInput type={"text"} placeholder={"شماره شبای بانکی"}/>
+                <PageHint title={"اطلاعات حساب"} description={"شماره شبای بانکی خود را اعلام فرمایید."}/>
+                <FormInput type={"text"} placeholder={"شماره شبای بانکی"} inputOnchange={inputOnchangeInput}
+                           property={"accountNo"} error={error.accountNo}/>
             </section>
             <section css={taxInfo}>
-                <div css={pageHint}>
-                    <h3> کد رهگیری مالیاتی </h3>
-                    <h6>برای نهایی کردن ثبت نام و دریافت درگاه پرداخت طبق قوانین شاپرک الزامی است که کد رهگیری مالیاتی
-                        داشته باشید.</h6>
-                </div>
-                <FormInput type={"text"} placeholder={"کد رهگیری مالیاتی"}/>
-                <div css={pageHint}>
-                    <h3>کد رهگیری مالیاتی ندارم و تمایل دارم از طریق دیجی‌پی نسب به دریافت آن اقدام کنم.</h3>
-                    <h6>برای اینکه بتوانید نسبت به دریافت کد رهگیری مالیاتی اقدام کنید باید تمامی اطلاعات مربوط به مراحل
-                        قبل و این مرحله را به صورت کامل وارد کنید.</h6>
-                </div>
+                <PageHint title={"کد رهگیری مالیاتی"}
+                          description={"برای نهایی کردن ثبت نام و دریافت درگاه پرداخت طبق قوانین شاپرک الزامی است که کد رهگیری مالیاتی داشته باشید."}/>
+                <FormInput type={"text"} placeholder={"کد رهگیری مالیاتی"} inputOnchange={inputOnchangeInput}
+                           property={"taxCode"} error={error.taxCode}/>
+                <PageHint title={"کد رهگیری مالیاتی ندارم و تمایل دارم از طریق دیجی‌پی نسب به دریافت آن اقدام کنم."}
+                          description={"برای اینکه بتوانید نسبت به دریافت کد رهگیری مالیاتی اقدام کنید باید تمامی اطلاعات مربوط به مراحل قبل و این مرحله را به صورت کامل وارد کنید."}/>
                 <FormButton content={"دریافت کد رهگیری مالیاتی"}/>
             </section>
-
-        </div>
+            <FormButton content={"ثبت نهایی"} type={"submit"}/>
+        </form>
     );
 }
 

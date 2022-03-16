@@ -59,6 +59,11 @@ const requestBtn = css`
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transform: translate(-50%, -50%);
     white-space: nowrap;
     text-decoration: none;
@@ -66,7 +71,7 @@ const requestBtn = css`
   }
 `
 
-function NavRequestBtn({title,href,type}) {
+function NavRequestBtn({title,href}) {
     return (
         <React.Fragment>
             <button css={requestBtn}>

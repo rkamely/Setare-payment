@@ -33,7 +33,6 @@ const formInput = (error) => css`
 
 
 function FormInput({type, placeholder, focus, inputOnchange, property, error}) {
-    console.log(error)
     return (
         <div css={formInputContainer}>
             <input onChange={e => inputOnchange(e.target.value, property)}
