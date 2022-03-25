@@ -1,11 +1,17 @@
 const ShopDocValidation = (shopInfo) => {
+    const farsiCheckRegex = /^([\u0600-\u06FF]+\s?)+$/
+    const imageCheckValidation = /[\/.](jpg|jpeg|png)$/i
+    const numberCheckRegex = /^[0-9\b]+$/
 
     return new Promise((resolve, reject) => {
 
         let errors = {};
 
         if (shopInfo.shopName === "" || shopInfo.shopName === undefined) {
-            errors['shopName'] = 'لطفا نام فروشگاه خود را وارد فرمایید.';
+            errors['shopName'] = 'لطفا نام فروشگاه خود را به فارسی وارد فرمایید.';
+            reject(errors);
+        }else if (!farsiCheckRegex.test(shopInfo.shopName)) {
+            errors['shopName'] = 'لطفا نام فروشگاه خود را به فارسی وارد فرمایید.';
             reject(errors);
         }
         if (shopInfo.enShopName === "" || shopInfo.enShopName === undefined) {
@@ -31,6 +37,9 @@ const ShopDocValidation = (shopInfo) => {
         if (shopInfo.postalCodeShop === "" || shopInfo.postalCodeShop === undefined) {
             errors['postalCodeShop'] = 'لطفا کد پستی فروشگاه خود را وارد فرمایید.';
             reject(errors);
+        }else if (!numberCheckRegex.test(shopInfo.postalCodeShop)) {
+            errors['postalCodeShop'] = 'فقط میتوانید عدد وارد نمایید.';
+            reject(errors);
         }
         if (shopInfo.classCode === "" || shopInfo.classCode === undefined) {
             errors['classCode'] = 'لطفا صنف خود را انتخاب فرمایید.';
@@ -55,13 +64,22 @@ const ShopDocValidation = (shopInfo) => {
         if (shopInfo.uploadLogo === "" || shopInfo.uploadLogo === undefined) {
             errors['uploadLogo'] = 'لطفا لوگوی فروشگاه خود را آپلود فرمایید.';
             reject(errors);
+        } else if (!imageCheckValidation.test(shopInfo.uploadLogo.type)) {
+            errors['uploadLogo'] = 'فایل شما باید فرمت jpg یا png باشد';
+            reject(errors);
         }
         if (shopInfo.accountNo === "" || shopInfo.accountNo === undefined) {
             errors['accountNo'] = 'لطفا شماره شبای خود را وارد فرمایید.';
             reject(errors);
+        }else if (!numberCheckRegex.test(shopInfo.accountNo)) {
+            errors['accountNo'] = 'فقط میتوانید عدد وارد نمایید.';
+            reject(errors);
         }
         if (shopInfo.taxCode === "" || shopInfo.taxCode === undefined) {
             errors['taxCode'] = 'لطفا کد رهگیری مالیاتی خود را وارد فرمایید.';
+            reject(errors);
+        }else if (!numberCheckRegex.test(shopInfo.taxCode)) {
+            errors['taxCode'] = 'فقط میتوانید عدد وارد نمایید.';
             reject(errors);
         }
         resolve(true)

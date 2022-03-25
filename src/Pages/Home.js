@@ -1,7 +1,7 @@
 /** @jsxRuntime classic /
  /** @jsx jsx */
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, {useEffect} from "react";
 import {jsx, css} from '@emotion/react'
 import * as Variable from '../Constants/Variables';
 import VideoHomePage from "../Containers/HomePage/VideoHomePage";
@@ -19,6 +19,9 @@ const backgroundHome = css`
 `
 
 function Home() {
+    useEffect(()=>{
+    window.scrollTo(0, 0)
+    },[])
     return (
         <React.Fragment>
             <main css={backgroundHome}>

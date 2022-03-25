@@ -48,6 +48,7 @@ function UploadDoc({handleNext}) {
             [property]: e.target.files[0],
         })
     }
+
     const formUploadHandler = (e) => {
         e.preventDefault()
         UploadDocValidation(upload)

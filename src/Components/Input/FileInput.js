@@ -78,7 +78,7 @@ function FileInput({title, inputOnchange, property, image, altImage, error}) {
             <span>{title}</span>
             <label css={uploadInput}>
                 <input type="file" name="image_reference"
-                       onChange={(e) => inputOnchange(e, {property})}
+                       onChange={(e) => inputOnchange(e, property)}
                        accept="image/png,image/jpg,image/jpeg"
                 />
                 <div css={contentInput}>

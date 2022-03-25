@@ -40,10 +40,10 @@ const linkMenuCSS = css`
 `
 
 
-function LinkMenu({link, menuName}) {
+function LinkMenu({link, menuName, onClick}) {
     return (
         <React.Fragment>
-            <Link to={link} css={linkMenuCSS}> {menuName} </Link>
+            <Link onClick={onClick} to={link} css={linkMenuCSS}> {menuName} </Link>
         </React.Fragment>
     );
 }

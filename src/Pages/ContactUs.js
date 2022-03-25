@@ -2,7 +2,7 @@
  /** @jsx jsx */
 /** @jsxImportSource @emotion/react */
 
-import React from "react";
+import React, {useEffect} from "react";
 import {jsx, css} from '@emotion/react';
 import * as Variable from '../Constants/Variables';
 import headquarter from "../Assets/Img/headquarter.png"
@@ -71,7 +71,9 @@ const address = css`
 
 
 function ContactUs() {
-
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     return (
         <React.Fragment>
             <div css={contactUsCSS}>

@@ -6,13 +6,24 @@ import React from "react";
 import {jsx, css} from '@emotion/react';
 import * as Variable from '../../Constants/Variables';
 
-const textareaForm = css`
+const textarea = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  span {
+    width: 100%;
+    color: ${Variable.fontColorError};
+    font-size: .7rem;
+    margin-top: .5rem;
+  }
+`
+const textareaForm = (error) => css`
   padding: 1rem;
   outline: none;
-  margin: 1rem .5rem;
-  border: ${Variable.border};
+  margin: auto;
+  border: ${(error === "" || error=== undefined) ? `${Variable.border}` : `${Variable.borderError}`};
   transition: all .5s;
-  width: 90%;
+  width: 100%;
   border-radius: ${Variable.radius};
 
   &:focus {
@@ -21,13 +32,15 @@ const textareaForm = css`
 `
 
 
-function TextareaForm({name,id,row,column,placeholder}) {
+function TextareaForm({name, id, row, column, placeholder, inputOnchange, property, error}) {
 
     return (
-        <React.Fragment>
-                <textarea css={textareaForm} name={name} id={id} rows={row}
-                          placeholder={placeholder}/>
-        </React.Fragment>
+        <div css={textarea}>
+                <textarea css={textareaForm(error)} name={name} id={id} rows={row}
+                          placeholder={placeholder}
+                          onChange={e => inputOnchange(e.target.value, property)}/>
+            {(error === "" || undefined) ? null : <span>{error}</span>}
+        </div>
     );
 }
 

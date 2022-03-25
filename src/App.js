@@ -35,32 +35,25 @@ const global = () => css`
     h1 {
       font-size: 3.5vw;
     }
-
     h2 {
       font-size: 2.2vw;
 
     }
-
     h3 {
       font-size: 1.8vw;
     }
-
     h4 {
       font-size: 1.4vw;
     }
-
     h5 {
       font-size: 1.2vw;
     }
     h6 {
       font-size: 1vw;
     }
-
     p {
       font-size: 1.8vw;
     }
-
-
   }
 `
 

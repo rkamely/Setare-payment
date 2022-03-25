@@ -2,13 +2,13 @@
  /** @jsx jsx */
 /** @jsxImportSource @emotion/react */
 
-import React from "react";
+import React, {useState} from "react";
 import {jsx, css} from '@emotion/react';
 import * as Variable from '../../Constants/Variables';
 import FormInput from "../../Components/Input/FormInput";
 import TextareaForm from "../../Components/Input/TextareaForm";
 import FormButton from "../../Components/Button/FormButton";
-
+import ContactFormValidation from "./ContactFormValidation";
 
 const sendMail = css`
   display: flex;
@@ -25,6 +25,7 @@ const sendMail = css`
     width: 85%;
     margin: auto;
   }
+
   > * {
     width: 90%;
     margin: 1rem .5rem;
@@ -33,16 +34,38 @@ const sendMail = css`
 
 
 function ContactForm() {
+    const [contactUsInfo, setContactUsInfo] = useState({
+        name: "",
+        phone: "",
+        message: "",
+    })
+    const [error, setError] = useState({
+        name: "",
+        phone: "",
+        message: "",
+    })
+    const inputOnchange = (value, property) => {
+        setContactUsInfo({
+            ...contactUsInfo,
+            [property]: value,
+        })
+    }
     const handleContactUsForm = (e) => {
         e.preventDefault()
+        ContactFormValidation(contactUsInfo)
+            .then((resolve) => resolve)
+            .catch((err) => setError(err))
     }
     return (
         <React.Fragment>
             <form css={sendMail} onSubmit={handleContactUsForm}>
-                <FormInput type={"text"} placeholder={"نام و نام خانوادگی"}/>
-                <FormInput type={"text"} placeholder={"شمارموبایل"}/>
-                <TextareaForm name={''} id={''} row={5} column={''} placeholder={"لطفا پیام خود را ثبت کنید"}/>
-                <FormButton content={"ارسال"}/>
+                <FormInput type={"text"} placeholder={"نام و نام خانوادگی"} inputOnchange={inputOnchange}
+                           property={"name"} error={error.name}/>
+                <FormInput type={"text"} placeholder={"شمارموبایل"} inputOnchange={inputOnchange} property={"phone"}
+                           error={error.phone}/>
+                <TextareaForm name={''} id={''} row={5} column={''} placeholder={"لطفا پیام خود را ثبت کنید"}
+                              inputOnchange={inputOnchange} property={"message"} error={error.message}/>
+                <FormButton content={"ارسال"} type={"submit"}/>
             </form>
         </React.Fragment>
     );

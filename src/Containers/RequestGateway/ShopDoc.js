@@ -130,7 +130,6 @@ function ShopDoc({handleNext}) {
             .then((resolve) => handleNext(resolve))
             .catch((err) => setError(err))
     }
-    console.log(shopInfo)
     return (
         <form onSubmit={formShopHandler} css={shopDocuments}>
             <PageHint title={"درخواست درگاه پرداخت"} description={"لطفا اطلاعات را صحیح وارد نمایید."}/>

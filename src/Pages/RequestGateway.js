@@ -2,7 +2,7 @@
  /** @jsx jsx */
 /** @jsxImportSource @emotion/react */
 
-import React from "react";
+import React, {useEffect} from "react";
 import {jsx, css} from '@emotion/react'
 import * as Variable from '../Constants/Variables';
 import Stepper from '@mui/material/Stepper';
@@ -57,11 +57,12 @@ const steps = ['احراز هوبت', 'آپلود مدارک', 'اطلاعات �
 
 function RequestGateway() {
     const [activeStep, setActiveStep] = React.useState(0);
-
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     const handleNext = (resolve) => {
         if(resolve){setActiveStep((prevActiveStep) => prevActiveStep + 1)}
         window.scrollTo(0, 0)
-
     };
     // const handleBack = () => {
     //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -81,7 +82,7 @@ function RequestGateway() {
             </Stepper>
             <div>
                 {activeStep === 0 ?
-                    <ShopDoc handleNext={handleNext}/> : activeStep === 1 ?
+                    <Identifying handleNext={handleNext}/> : activeStep === 1 ?
                         <UploadDoc handleNext={handleNext}/> : activeStep === 2 ? <ShopDoc/> : null}
 
             </div>

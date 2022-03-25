@@ -136,11 +136,13 @@ const actionBtnClass = css`
   }
 `
 const searchContainer = css`
+  z-index: 6000;
   input {
     margin: 5rem auto 0 auto;
     width: 50%;
     z-index: 1000;
   }
+
 `
 const searchTitle = css`
   display: flex;
@@ -150,7 +152,7 @@ const searchTitle = css`
   background-color: ${Variable.bgNews};
 `
 const searchGif = css`
-  width: 300px;
+  width: 250px;
   margin: 0 auto;
 `
 
@@ -229,7 +231,9 @@ function Header() {
                 <div css={actionBtnClass}>
                     <NavRequestBtn title={"ثبت درخواست"} href={"/RequestGateway"}/>
                     <div>
-                        <div onClick={handleClickOpen}><NavIcon source={Search} alt={"Search"} href={"#"}/></div>
+                        <div onClick={handleClickOpen}>
+                            <NavIcon source={Search} alt={"Search"} href={"#"}/>
+                        </div>
                         <NavIcon source={Telephone} alt={"Phone"} href={"tel:+989199001193"}/>
                         <NavIcon source={LogoutIcon} alt={"Login"} href={"#"}/>
                     </div>
