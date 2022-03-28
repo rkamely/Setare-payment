@@ -20,14 +20,18 @@ const formInputContainer = css`
 const formInput = (error) => css`
   padding: 1rem;
   outline: none;
-  border: ${(error === "" || error=== undefined) ? `${Variable.border}` : `${Variable.borderError}`};
+  border: ${(error === "" || error === undefined) ? `${Variable.border}` : `${Variable.borderError}`};
   transition: all .5s;
   border-radius: ${Variable.radius};
 
   &:focus {
     box-shadow: ${Variable.boxShadow};
-    border: ${(error === "" || error=== undefined) ? `${Variable.activeBorder}` : `${Variable.borderError}`};
+    border: ${(error === "" || error === undefined) ? `${Variable.activeBorder}` : `${Variable.borderError}`};
+  }
 
+  &::placeholder {
+    color: ${Variable.placeholderColor};
+    font-size: ${Variable.placeholderFontSize};
   }
 `
 

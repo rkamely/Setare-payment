@@ -1,11 +1,25 @@
+import validator from "validator/es";
+
+
+
 const IdentifyingValidation = (identify) => {
     const farsiCheckRegex = /^([\u0600-\u06FF]+\s?)+$/
     const englishCheckRegex = /^[a-zA-Z]+$/
     const numberCheckRegex = /^[0-9\b]+$/
-    const nationalIdCheckRegex = /^\d{10}$/
+    const fixPhoneCheckerRegex = /^\d{11}$/
 
 
-    // console.log(!farsiCheckRegex.test(identify.firstName))
+    // const dateCheckRegex = /^[1-4]\d{3}\/((0[1-6]\/((3[0-1])|([1-2][0-9])|(0[1-9])))|((1[0-2]|(0[7-9]))\/(30|31|([1-2][0-9])|(0[1-9]))))$/
+
+    function isValidIranianNationalCode(input) {
+        if (!/^\d{10}$/.test(input)) return false;
+        const check = +input[9];
+        const sum = input.split('').slice(0, 9).reduce((acc, x, i) => acc + +x * (10 - i), 0) % 11;
+        return sum < 2 ? check === sum : check + sum === 11;
+    }
+
+
+    // console.log()
     return new Promise((resolve, reject) => {
 
         let errors = {};
@@ -55,7 +69,7 @@ const IdentifyingValidation = (identify) => {
         if (identify.nationalId === "" || identify.nationalId === undefined) {
             errors['nationalId'] = 'لطفا کد ملی خود را وارد فرمایید';
             reject(errors);
-        } else if (!numberCheckRegex.test(identify.nationalId) || !nationalIdCheckRegex.test(identify.nationalId)) {
+        } else if (!isValidIranianNationalCode(identify.nationalId)) {
             errors['nationalId'] = 'کد ملی وارد شده نا معتبر است';
             reject(errors);
         }
@@ -66,9 +80,15 @@ const IdentifyingValidation = (identify) => {
         if (identify.mobile === "" || identify.mobile === undefined) {
             errors['mobile'] = 'لطفا شماره موبایل خود را وارد فرمایید';
             reject(errors);
+        } else if (!validator.isMobilePhone(identify.mobile,'fa-IR')) {
+            errors['mobile'] = 'شماره موبایل نا معتبر است.';
+            reject(errors);
         }
         if (identify.phone === "" || identify.phone === undefined) {
-            errors['phone'] = 'لطفا شماره تلفن ثابت خود را وارد فرمایید';
+            errors['phone'] = 'لطفا شماره تلفن ثابت با پیش شماره را وارد فرمایید.';
+            reject(errors);
+        } else if (!fixPhoneCheckerRegex.test(identify.phone)) {
+            errors['phone'] = 'شماره تلفن نا معتبر است.';
             reject(errors);
         }
         resolve(true)

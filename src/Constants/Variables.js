@@ -4,6 +4,9 @@ import React from "react";
 export const fontColor = '#FFFFFF';
 export const fontColorError = '#e70404';
 export const fontColorAccepted = '#07EC07FF';
+export const placeholderColor='#939393'
+export const placeholderFontSize='.8rem'
+
 
 export const backgroundColor = '#FFFFFF';
 export const border = '1px solid #f0eeee';

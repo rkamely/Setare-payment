@@ -11,6 +11,7 @@ import PageHint from "../../Components/PageHint";
 import SelectForm from "../../Components/Input/SelectForm";
 import FileInput from "../../Components/Input/FileInput";
 import ShopDocValidation from "./ShopDocValidation";
+import DatePicker from "../../Components/Input/DatePicker";
 
 const shopDocuments = css`
   margin: auto;
@@ -163,8 +164,8 @@ function ShopDoc({handleNext}) {
                             ]}/>
                 <FormInput type={"text"} placeholder={"شماره قرارداد اجاره"} inputOnchange={inputOnchangeInput}
                            property={"classCode"} error={error.classCode}/>
-                <FormInput type={"text"} placeholder={"تاریخ اتمام قرارداد اجاره"} inputOnchange={inputOnchangeInput}
-                           property={"subClassCode"} error={error.subClassCode}/>
+                <DatePicker placeholder={"تاریخ اتمام قرارداد اجاره"} inputOnchange={inputOnchange}
+                            property={"subClassCode"} error={error.birthDay}/>
             </section>
             <section>
                 <PageHint title={"بارگذاری لوگوی فروشگاه"} description={"لطفا از فرمت های JPG و PNG استفاده فرمایید."}/>
@@ -173,7 +174,7 @@ function ShopDoc({handleNext}) {
             </section>
             <section css={accountInfo}>
                 <PageHint title={"اطلاعات حساب"} description={"شماره شبای بانکی خود را اعلام فرمایید."}/>
-                <FormInput type={"text"} placeholder={"شماره شبای بانکی"} inputOnchange={inputOnchangeInput}
+                <FormInput type={"text"} placeholder={"شماره شبای بانکی خود را بدون IR وارد کنید."} inputOnchange={inputOnchangeInput}
                            property={"accountNo"} error={error.accountNo}/>
             </section>
             <section css={taxInfo}>

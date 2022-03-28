@@ -8,6 +8,7 @@ import FormInput from "../../Components/Input/FormInput";
 import FormButton from "../../Components/Button/FormButton";
 import IdentifyingValidation from "./IdentifyingValidation";
 import PageHint from "../../Components/PageHint";
+import DatePicker from "../../Components/Input/DatePicker";
 
 const identifying = css`
   button {
@@ -74,7 +75,6 @@ function Identifying({handleNext}) {
             .then((resolve) => handleNext(resolve))
             .catch((err) => setError(err))
     }
-
     return (
         <div css={identifying}>
             <PageHint title={"اطلاعات اولیه"} description={"لطفا اطلاعات را صحیح وارد نمایید."}/>
@@ -85,8 +85,8 @@ function Identifying({handleNext}) {
                            property={"lastName"} error={error.lastName}/>
                 <FormInput type={"text"} placeholder={"کد ملی"} inputOnchange={inputOnchange}
                            property={"nationalId"} error={error.nationalId}/>
-                <FormInput type={"text"} placeholder={"تاریخ تولد"} inputOnchange={inputOnchange}
-                           property={"birthDay"} error={error.birthDay}/>
+                <DatePicker placeholder={"تاریخ تولد"} inputOnchange={inputOnchange}
+                            property={"birthDay"} error={error.birthDay}/>
                 <FormInput type={"text"} placeholder={"نام به انگلیسی"} inputOnchange={inputOnchange}
                            property={"enFirstName"} error={error.enFirstName}/>
                 <FormInput type={"text"} placeholder={"نام خانوادگی به انگلیسی"} inputOnchange={inputOnchange}
@@ -95,9 +95,9 @@ function Identifying({handleNext}) {
                            property={"fatherName"} error={error.fatherName}/>
                 <FormInput type={"text"} placeholder={"نام پدر به انگلیسی"} inputOnchange={inputOnchange}
                            property={"enFatherName"} error={error.enFatherName}/>
-                <FormInput type={"text"} placeholder={"شماره موبایل"} inputOnchange={inputOnchange}
+                <FormInput type={"text"} placeholder={"شماره موبایل مانند ...0912123"} inputOnchange={inputOnchange}
                            property={"mobile"} error={error.mobile}/>
-                <FormInput type={"text"} placeholder={"شماره تلفن ثابت"} inputOnchange={inputOnchange}
+                <FormInput type={"text"} placeholder={"شماره تلفن ثابت با پیش شماره مانند ...021444"} inputOnchange={inputOnchange}
                            property={"phone"} error={error.phone}/>
                 <FormButton content={"ثبت اطلاعات"} type={"submit"}/>
             </form>
