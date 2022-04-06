@@ -4,14 +4,11 @@
 
 import React from "react";
 import * as Variable from '../../../Constants/Variables';
-import {jsx, css, keyframes} from '@emotion/react';
+import {jsx, css} from '@emotion/react';
 import {Link} from "react-router-dom"
-import pic1 from '../../../Assets/Card/image-intro-1.jpg'
-import pic2 from '../../../Assets/Card/image-intro-4.jpg'
-import pic3 from '../../../Assets/Card/startup-image-1.jpg'
-import pic4 from "../../../Assets/Card/startup-image-5.jpg"
-import {BsArrowRight} from "react-icons/bs"
 
+
+import {BsArrowRight} from "react-icons/bs"
 
 const card = css`
   display: flex;
@@ -29,8 +26,6 @@ const card = css`
   position: relative;
   @media (max-width: 999px) {
     height: 400px;
-  }
-  @media (max-width: 768px) {
     width: 45%;
   }
   @media (max-width: 600px) {
@@ -98,51 +93,47 @@ const card = css`
     justify-content: center;
     align-items: center;
 
-    > :nth-child(2) {
-      font-size: 1.5rem;
-      transform: scaleY(0);
-      transition: all .5s;
-      margin-right: 1rem;
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    &:hover > :nth-child(2) {
-      transform: scaleX(1) rotate(180deg);
-    }
-
     > * {
       color: #ffffff;
     }
 
+    > span {
+      position: relative;
 
-    span {
-      text-decoration: none;
-      padding: 0 5px;
+      > :nth-child(2) {
+        font-size: 1.5rem;
+        transform: scaleY(0);
+        transition: all .5s;
+        position: absolute;
+        margin: 0 .5rem;
+      }
+    }
+
+    &:hover > span :nth-child(2) {
+      transform: scaleX(1) rotate(180deg);
     }
   }
-
 `
 
 function CardService(props) {
 
     return (
-        <React.Fragment>
-            <div css={card}>
-                <img src={props.source} alt={props.alt}/>
-                <div>
-                    <h3>{props.title}</h3>
-                    <h6>{props.description}</h6>
-                </div>
-                <Link>
-                    <span>اطلاعات بیشتر</span>
-                    <BsArrowRight/>
-                </Link>
-            </div>
-        </React.Fragment>
-    )
-        ;
+       <>
+           <div css={card}>
+               <img src={props.source} alt={props.alt}/>
+               <div>
+                   <h3>{props.title}</h3>
+                   <h6>{props.description}</h6>
+               </div>
+               <Link>
+                    <span>
+                        <span>اطلاعات بیشتر</span>
+                        <BsArrowRight/>
+                    </span>
+               </Link>
+           </div>
+       </>
+    );
 }
 
 export default CardService;

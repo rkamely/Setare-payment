@@ -29,11 +29,11 @@ const footerSectionCSS = css`
   align-items: flex-start;
   padding: 3rem 0;
   @media (max-width: 768px) {
-    padding: 1rem 0 4rem 0;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: auto;
+    padding: 1rem;  ;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 800px;
   }
 `
 const footerLogoCSS = css`
@@ -184,12 +184,15 @@ function Footer() {
                     </h6>
                 </div>
                 <div css={linksFooterCSS}>
-                    <Link>صفحه اصلی</Link>
-                    <Link>درخواست درگاه</Link>
+                    <Link to={"./"}>صفحه اصلی</Link>
+                    <Link to={"./RequestGateway"}>درخواست درگاه</Link>
                     <Link>بلاگ</Link>
                     <Link>قوانین و مقرات</Link>
                     <Link>نمونه قرارداد</Link>
-                    <Link>ثبت نام</Link>
+                    <Link to={"./FAQ"}>سوالات متداول</Link>
+                    <Link>مستندات توسعه</Link>
+                    <Link to={"./Contactus"}>تماس با ما</Link>
+                    <Link to={"./AboutUs"}>درباره ما</Link>
                 </div>
                 <div css={footerContactCSS}>
                     <a href={"tel:+989199001193"}>

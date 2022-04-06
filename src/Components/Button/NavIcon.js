@@ -24,7 +24,9 @@ function NavIcon(props) {
 
     return (
         <React.Fragment>
-            <a href={props.href}><img css={iconNavCSS} src={props.source} alt={props.alt}/></a>
+            <a href={props.href}>
+                <img css={iconNavCSS} src={props.source} alt={props.alt}/>
+            </a>
         </React.Fragment>
     );
 }

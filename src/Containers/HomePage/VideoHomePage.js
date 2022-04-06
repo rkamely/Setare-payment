@@ -69,7 +69,7 @@ const textVideoClass = css`
     }
   }
 
-  h4 {
+  h3 {
     animation: ${videoTextBackward} 2s forwards;
     font-weight: 100;
     @media (max-width: 768px) {
@@ -92,7 +92,7 @@ function VideoHomePage() {
                 </video>
                 <div css={textVideoClass}>
                     <h1>ستاره اول</h1>
-                    <h4> پیش رو در ازائه خدمات پرداخت یاری</h4>
+                    <h3> پیشرو در ارائه خدمات پرداخت یاری</h3>
                 </div>
             </section>
 

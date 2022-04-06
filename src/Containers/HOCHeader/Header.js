@@ -5,23 +5,49 @@
 import React, {useState} from "react";
 import * as Variable from '../../Constants/Variables';
 import {jsx, css, keyframes} from '@emotion/react';
-import logo from '../../Assets/Img/01 - SetareAval.png'
-import Telephone from '../../Assets/Img/telephone-call.png'
-import Search from '../../Assets/Img/Search.png'
-import LogoutIcon from "../../Assets/Img/LogoutIcon.png"
 import LinkMenu from "../../Components/Link/LinkMenu";
 import NavIcon from "../../Components/Button/NavIcon";
 import NavRequestBtn from "../../Components/Button/NavRequestBtn";
 import HamburgerMenu from "../../Components/Button/HamburgerMenu";
 import Dialog from '@mui/material/Dialog';
+import Slide from '@mui/material/Slide';
+import FormInput from "../../Components/Input/FormInput";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Slide from '@mui/material/Slide';
-import FormInput from "../../Components/Input/FormInput";
+
+import logo from '../../Assets/Img/01 - SetareAval.png'
+import Telephone from '../../Assets/Img/telephone-call.png'
+import Search from '../../Assets/Img/Search.png'
+import LogoutIcon from "../../Assets/Img/LogoutIcon.png"
 import SearchAnim from "../../Assets/Gifs/search.gif"
 
+
+const logoAnimation = keyframes`
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`
+const iconAnimation = keyframes`
+  0% {
+    transform: translateX(-200px) rotate(-360deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+`
+const hamburger = keyframes`
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`
 
 const navClass = (display) => css`
   display: flex;
@@ -34,12 +60,15 @@ const navClass = (display) => css`
   border-bottom: ${Variable.border};
   border-top: ${Variable.border};
   z-index: 3000;
-  position: ${display ? "fixed" : "block"};
+  position: ${display ? "sticky" : "block"};
   top: 0;
   width: 100%;
+  overflow: hidden;
   @media (max-width: 768px) {
     position: fixed;
     padding: 0 12%;
+    overflow: visible;
+
   }
 `
 const bgHamburgerBtn = (open) => css`
@@ -53,14 +82,6 @@ const bgHamburgerBtn = (open) => css`
     z-index: 3000;
     top: 0;
     left: 0;
-  }
-`
-const hamburger = keyframes`
-  0% {
-    transform: translateX(110%);
-  }
-  100% {
-    transform: translateX(0%);
   }
 `
 const menuBtnClass = (open) => css`
@@ -85,6 +106,9 @@ const menuBtnClass = (open) => css`
 
   > * {
     padding: 0 10px;
+    @media (max-width: 1000px) {
+      font-size: .9rem;
+    }
     @media (max-width: 768px) {
       border-bottom: 1px solid #FFF1E2FF ;
       width: 100%;
@@ -94,6 +118,7 @@ const menuBtnClass = (open) => css`
   > img {
     height: 60px;
     width: 80px;
+    animation: ${logoAnimation} 1s ease-out;
     @media (max-width: 768px) {
       display: none;
     }
@@ -134,9 +159,29 @@ const actionBtnClass = css`
       display: none;
     }
   }
+
+  > :nth-child(2) {
+    > * {
+      transform: translateX(-200px);
+      animation: ${iconAnimation} 1s ease-out;
+      animation-fill-mode: forwards;
+    }
+
+    > :nth-child(1) {
+    }
+
+    > :nth-child(2) {
+      animation-delay: .25s;
+    }
+
+    > :nth-child(3) {
+      animation-delay: .5s;
+    }
+  }
 `
 const searchContainer = css`
   z-index: 6000;
+
   input {
     margin: 5rem auto 0 auto;
     width: 50%;
@@ -179,7 +224,6 @@ function Header() {
     const hamburgerBtn = () => {
         setOpen(!open)
     }
-
     const [openSearch, setOpenSearch] = React.useState(false);
     const handleClickOpen = () => {
         setOpenSearch(true);
@@ -187,6 +231,7 @@ function Header() {
     const handleClose = () => {
         setOpenSearch(false);
     };
+
     return (
         <React.Fragment>
             <Dialog
@@ -225,8 +270,9 @@ function Header() {
                     <LinkMenu menuName={"ورود"} link={"#"}/>
                     <LinkMenu onClick={handleClickOpen} menuName={"جستجو"} link={"#"}/>
                     <LinkMenu menuName={" خدمات ما"} link={"#"}/>
-                    <LinkMenu menuName={"درباره ما"} link={"#"}/>
+                    <LinkMenu menuName={"درباره ما"} link={"/AboutUs"}/>
                     <LinkMenu menuName={"تماس با ما"} link={"/ContactUs"}/>
+                    <LinkMenu menuName={"سوالات متداول"} link={"/FAQ"}/>
                 </div>
                 <div css={actionBtnClass}>
                     <NavRequestBtn title={"ثبت درخواست"} href={"/RequestGateway"}/>

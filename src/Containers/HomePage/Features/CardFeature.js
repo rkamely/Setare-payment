@@ -8,53 +8,53 @@ import {jsx, css} from '@emotion/react'
 
 const featureCss = css`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 25%;
+  width: 60%;
   box-shadow: 0 30px 50px -3px #cfdae5;
   background-color: #FFFFFF;
-  padding: 3rem 0;
-
+  padding: 3rem;
+  margin: 2rem auto;
   @media (max-width: 768px) {
     width: 80%;
-    margin: 1.2rem auto;
-
   }
 
   img {
-    width: 8rem;
-    height: 8rem;
+    width: 12rem;
+    height: 12rem;
     margin-bottom: 1rem;
-    @media (max-width: 768px) {
-      width: 12rem;
-      height: 12rem;
-    }
   }
 
-  h4 {
+  > div {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: auto;
-    height: 40px;
-    margin-top: 20px;
-    text-align: center;
-    line-height: 33px;
-    white-space: nowrap;
-    @media (max-width: 768px) {
-  font-size: 1.2rem;
+
+    h4 {
+      width: auto;
+      height: 40px;
+      margin: 20px auto;
+      text-align: center;
+      line-height: 33px;
+      white-space: nowrap;
+      font-weight: 600;
+      @media (max-width: 768px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    h6 {
+      width: 80%;
+      font-weight: 500;
+      @media (max-width: 768px) {
+        font-size: .8rem;
+      }
     }
   }
 
-  h6 {
-    width: 80%;
-    margin-bottom: 2rem!important;
-    padding: 0 1.5rem;
-    font-weight: 500;
-    @media (max-width: 768px) {
-      font-size: .8rem;
-    }
-  }
+
+
 `
 // const pulse = keyframes    `
 //       0% {
@@ -87,8 +87,11 @@ function CardFeature(props) {
         <React.Fragment>
             <div css={featureCss}>
                 <img src={props.icon} alt={props.alt}/>
-                <h4>{props.title}</h4>
-                <h6>{props.description}</h6>
+                <div>
+                    <h4>{props.title}</h4>
+                    <h6>{props.description}</h6>
+                </div>
+
                 {/*<div css={pulseBtnCss}/>*/}
             </div>
         </React.Fragment>

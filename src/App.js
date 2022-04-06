@@ -40,7 +40,7 @@ const global = () => css`
 
     }
     h3 {
-      font-size: 1.8vw;
+      font-size: 1.6vw;
     }
     h4 {
       font-size: 1.4vw;

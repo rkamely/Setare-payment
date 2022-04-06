@@ -12,8 +12,8 @@ import CardFeature from "./CardFeature";
 
 const featuresContainerCSS = css`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -22,8 +22,21 @@ const featuresContainerCSS = css`
   @media (max-width: 768px) {
     padding: 3rem 0;
   }
-`
 
+  > :nth-child(odd) {
+    flex-direction: row;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  > :nth-child(even) {
+    flex-direction: row-reverse;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+`
 
 
 function Features() {
@@ -31,12 +44,12 @@ function Features() {
         <React.Fragment>
             <section css={featuresContainerCSS}>
                 <CardFeature icon={callCenter} alt={"پشتیبانی 24 ساعته"} title={"پشتیبانی 24 ساعته"}
-                             description={"تیم فنی ما به صورت تمام وقت در خدمت شما عزیزان هستند."}/>
+                             description={"توجه به نیازهای مشتریان در جهت پاسخگویی موثر به نیازها و جلب رضایت و خوشنودی ایشان، ما را بر آن داشت تا با گردآوری اشخاص مجرب در زمینه پشتیبانی، به صورت ۲۴ ساعته و در تمام طول هفته سعی در برآورده کردن نیازهای مشتریان خود داشته باشیم. لذا شما قادر خواهید بود در هر ساعتی از شبانه روز جهت رفع مشکل با شماره تلفن  ۷۹۱۸۲۰۰۰ - ۰۲۱ تماس بگیرید و این اطمینان را داشته باشید که کارشناسان ما در بخش پشتیبانی، در اسرع وقت به رفع مشکل شما خواهند پرداخت."}/>
                 <CardFeature icon={cashOut} alt={"تصویه روزانه بعد از یک روزه کاری "}
                              title={"تصویه روزانه بعد از یک روزه کاری "}
-                             description={"بعد از یک روز کاری به صورت کامل پول در حساب شما قرار خواهد گرفت."}/>
+                             description={"بدر راستای همراهی با کسب و کارها مدت زمان تسویه حساب ها را کاهش دادیم تا تمامی کاربران ستاره پی و تمامی کسب و کارهایی که نیاز به درگاه پرداخت اینترنتی مطمئن با تسویه سریع دارند، بتوانند از خدمات ستاره پی استفاده کنند. به این ترتیب تمامی درخواست‌های تسویه به صورت روزانه انجام می شوند و درخواست های ثبت شده در هر روز، روز بعد به حساب شما واریز خواهند شد."}/>
                 <CardFeature icon={certification} alt={"دریافت مجوز پرداخت یاری"} title={"دریافت مجوز پرداخت یاری"}
-                             description={"از اول تا آخر گرفتن مجوز پرداخت یاری در کنار شما مشتریان عزیز هستیم"}/>
+                             description={"اولین قدم برای دریافت مجوز پرداخت یاری عقد قرار داد با یکی از شرکت های ارائه دهنده خدمات پرداخت (PSP) می باشد. شرکت های PSP برای عقد قرار داد پرداخت یاری و ارسال معرفی نامه به شاپرک هر کدام شرایط و ضوابط خاص خودشان را دارند و معمولا پروپوزال و داکیومنت از مدل کسب وکار و همچنین ضمانت نامه بانکی را از شرکت های متقاضی می خواهند."}/>
 
             </section>
         </React.Fragment>

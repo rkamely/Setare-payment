@@ -2,16 +2,17 @@
  /** @jsx jsx */
 /** @jsxImportSource @emotion/react */
 
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {jsx, css} from '@emotion/react'
 import * as Variable from '../Constants/Variables';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
 import Identifying from "../Containers/RequestGateway/Identifying";
 import UploadDoc from "../Containers/RequestGateway/UploadDoc";
 import ShopDoc from "../Containers/RequestGateway/ShopDoc";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 const requestGateway = css`
   width: 90%;
@@ -29,46 +30,49 @@ const requestGateway = css`
     margin-left: .25rem;
   }
 `
-const stepperBtn = css`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 5rem;
+const alertMui = css`
+  direction: ltr !important;
 
   button {
-    background-color: ${Variable.level2actionBtnBg};
-    color: #FFFFFF;
-    padding: .5rem 1rem;
-    font-size: 1rem;
-
-    :disabled {
-      background-color: gray;
-      color: #b0b0b0;
-
-    }
-
-    &:hover {
-      background-color: ${Variable.level2actionBtnBgHover};
-
-    }
+    display: none;
   }
 `
 const steps = ['احراز هوبت', 'آپلود مدارک', 'اطلاعات فروشگاه'];
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 function RequestGateway() {
-    const [activeStep, setActiveStep] = React.useState(0);
-    useEffect(()=>{
+
+    const [activeStep, setActiveStep] = useState(0);
+
+    useEffect(() => {
         window.scrollTo(0, 0)
-    },[])
+    }, [])
+
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
     const handleNext = (resolve) => {
-        if(resolve){setActiveStep((prevActiveStep) => prevActiveStep + 1)}
+        if (resolve) {
+            setActiveStep((prevActiveStep) => prevActiveStep + 1)
+            handleClick()
+        }
         window.scrollTo(0, 0)
     };
-    // const handleBack = () => {
-    //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    //     window.scrollTo(0, 0)
-    //
-    // };
+
+
     return (
         <div css={requestGateway}>
             <Stepper activeStep={activeStep}>
@@ -84,17 +88,16 @@ function RequestGateway() {
                 {activeStep === 0 ?
                     <Identifying handleNext={handleNext}/> : activeStep === 1 ?
                         <UploadDoc handleNext={handleNext}/> : activeStep === 2 ? <ShopDoc/> : null}
-
             </div>
-            {/*<div css={stepperBtn}>*/}
-            {/*    <Button disabled={activeStep === 0} onClick={handleBack}>بازگشت</Button>*/}
-            {/*    {activeStep === steps.length - 1 ?*/}
-            {/*        <Button >ثبت نهایی</Button> :*/}
-            {/*        <Button onClick={handleNext} >مرحله بعدی</Button>*/}
-            {/*    }*/}
-            {/*</div>*/}
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose} transitionDuration={1000}>
+                <Alert css={alertMui} onClose={handleClose} severity="success"
+                       sx={{width: '100%', backgroundColor: ''}}>
+                    اطلاعات شما با موفقیت ثبت شد.
+                </Alert>
+            </Snackbar>
         </div>
-    );
+    )
+        ;
 }
 
 export default RequestGateway;

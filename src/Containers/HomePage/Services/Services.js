@@ -4,13 +4,11 @@
 
 import React from "react";
 import * as Variable from '../../../Constants/Variables';
-import {jsx, css, keyframes} from '@emotion/react';
-import {Link} from "react-router-dom"
+import {jsx, css} from '@emotion/react';
 import pic1 from '../../../Assets/Card/image-intro-1.jpg'
 import pic2 from '../../../Assets/Card/image-intro-4.jpg'
 import pic3 from '../../../Assets/Card/startup-image-1.jpg'
 import pic4 from "../../../Assets/Card/startup-image-5.jpg"
-import {BsArrowRight} from "react-icons/bs"
 import CardService from "./CardService";
 
 const cardSection = css`
@@ -23,24 +21,28 @@ const cardSection = css`
   @media (max-width: 768px) {
     padding: 3rem 1rem;
   }
-
 `
 
 function Services() {
 
     return (
-        <React.Fragment>
-            <section css={cardSection}>
+
+        <section css={cardSection}>
+
                 <CardService source={pic1} alt={"ثبت درگاه شخصی"} title={"ثبت درگاه شخصی"}
-                             description={"شما میتوانید در قابل های میتب یندیبر ندی نبئدیسمنب بند نززین سیمدزئ سم مئدز"}/>
+                             description={"شما می توانید در خواست خود را جهت دریافت درگاه شخصی برای کسب کارتان ثبت نمایید."}/>
+
                 <CardService source={pic2} alt={"تسهیم چند حساب"} title={"تسهیم چند حساب"}
-                             description={"شما میتوانید در قابل های میتب یندیبر ندی نبئدیسمنب بند نززین سیمدزئ سم مئدز"}/>
+                             description={"با تسهیم چند حساب می توانید از خدمات جدید استفاده از چند حساب متفاوت توسط یک شخص استفاده فرمایید."}/>
+
                 <CardService source={pic3} alt={"پلتفرم های مختلف"} title={"پلتفرم های مختلف"}
-                             description={"شما میتوانید در قابل های میتب یندیبر ندی نبئدیسمنب بند نززین سیمدزئ سم مئدز"}/>
+                             description={"پلتفرم های مختلفی جهت ارائه خدمات بهتر برای شما آماده سازی شده است تا بتوانیم بهترین خدمات را ارائه دهیم."}/>
+
                 <CardService source={pic4} alt={"چند درگاهی"} title={"چند درگاهی"}
-                             description={"شما میتوانید در قابل های میتب یندیبر ندی نبئدیسمنب بند نززین سیمدزئ سم مئدز"}/>
-            </section>
-        </React.Fragment>
+                             description={"شما میتوانید با ثبت درخواست چندین درگاه مختلف احتمال ناموفق بودن پرداخت های خود را به دلیل اختلال در یک PSP کاهش دهید."}/>
+
+        </section>
+
     );
 }
 
