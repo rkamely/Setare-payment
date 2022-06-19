@@ -10,9 +10,16 @@ import loading from "../Assets/Gifs/mainLoading.gif"
 
 function Loading() {
     const loadingCss = css`
+     
       display: flex;
       justify-content: center;
       height: 100vh;
+      @media (max-width: 768px) {
+        >img{
+          height: auto;
+          width: 100%;
+        }
+      }
     `
     return (
 

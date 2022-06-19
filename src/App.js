@@ -10,8 +10,9 @@ import * as Variable from './Constants/Variables';
 const global = () => css`
   @font-face {
     font-family: "IRANSans";
-    src: local('IRANSans'), url('Assets/fonts/iransans.woff') format('truetype');
+    src: local('IRANSans'), url('iransans.woff') format('truetype');
   }
+
   * {
     box-sizing: border-box;
     padding: 0;
@@ -19,7 +20,7 @@ const global = () => css`
     font-family: 'IRANSans';
     text-decoration: none;
     direction: rtl;
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
 
     :after :before {
       box-sizing: border-box;
@@ -35,22 +36,28 @@ const global = () => css`
     h1 {
       font-size: 3.5vw;
     }
+
     h2 {
       font-size: 2.2vw;
 
     }
+
     h3 {
       font-size: 1.6vw;
     }
+
     h4 {
       font-size: 1.4vw;
     }
+
     h5 {
       font-size: 1.2vw;
     }
+
     h6 {
       font-size: 1vw;
     }
+
     p {
       font-size: 1.8vw;
     }
