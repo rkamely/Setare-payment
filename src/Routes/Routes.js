@@ -22,12 +22,10 @@ function Routes() {
         import('./../Pages/NotFound'));
 
 
-
     return (
         <React.Fragment>
             <BrowserRouter>
-                <React.Suspense fallback={
-                    <Loading/>}>
+                <React.Suspense fallback={<Loading/>}>
                     <Switch>
                         <HeaderAndFooter exact path="/" component={Home}/>
                         <HeaderAndFooter path="/ContactUs" component={ContactUs}/>

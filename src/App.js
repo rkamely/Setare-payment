@@ -10,7 +10,7 @@ import * as Variable from './Constants/Variables';
 const global = () => css`
   @font-face {
     font-family: "IRANSans";
-    src: local('IRANSans'), url('/fonts/iransans.woff') format('truetype');
+    src: local('IRANSans'), url('Assets/fonts/iransans.woff') format('truetype');
   }
   * {
     box-sizing: border-box;
